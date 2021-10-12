@@ -1,4 +1,10 @@
 {
-  "BigInteger": "java.math.BigInteger",
-  "BigDecimal": "java.math.BigDecimal"
+  "big_integer": "java.math.BigInteger",
+  "big_decimal": "java.math.BigDecimal",
+  "aggregation_datas": "kotlin.String",
+  "block_number": "java.math.BigInteger",
+  "edsig": "kotlin.String",
+  "address": "kotlin.String",
+  "word": "kotlin.String",
+  "edpk": "kotlin.String"
 }

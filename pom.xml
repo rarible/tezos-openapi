@@ -29,7 +29,7 @@
         <rarible.codegen.server.version>1.1.0</rarible.codegen.server.version>
         <rarible.codegen.client.version>1.2.0</rarible.codegen.client.version>
         <openapi.plugin.version>5.1.0</openapi.plugin.version>
-        <model.generator.version>1.2.5</model.generator.version>
+        <model.generator.version>1.2.7</model.generator.version>
         <dir.src.kotlin>${project.basedir}/src/main/kotlin</dir.src.kotlin>
         <dir.src.java>${project.basedir}/src/main/java</dir.src.java>
         <dir.src.generated>${basedir}/target/generated-sources</dir.src.generated>
