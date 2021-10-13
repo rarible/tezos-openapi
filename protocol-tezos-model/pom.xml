@@ -42,7 +42,7 @@
                 <artifactId>model-generator-maven-plugin</artifactId>
                 <configuration>
                     <schema>
-                        <inputFile>${project.basedir}/../openapi.json</inputFile>
+                        <inputFile>${project.basedir}/../openapi.yaml</inputFile>
                     </schema>
                     <generators>
                         <generator>
