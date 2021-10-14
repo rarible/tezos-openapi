@@ -4,5 +4,7 @@
   "edsig": "kotlin.String",
   "Address": "kotlin.String",
   "Word": "kotlin.String",
+  "BigDecimal": "java.math.BigDecimal",
+  "BigInteger": "java.math.BigInteger",
   "edpk": "kotlin.String"
 }
