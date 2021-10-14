@@ -32,6 +32,10 @@ open class TezosApiClientFactory(
         return OrderActivityControllerApi(createApiClient())
     }
 
+    fun createOrderSignatureApiClient(): OrderSignatureControllerApi {
+        return OrderSignatureControllerApi(createApiClient())
+    }
+
     fun createOrderAggregationApiClient(): OrderAggregationControllerApi {
         return OrderAggregationControllerApi(createApiClient())
     }
