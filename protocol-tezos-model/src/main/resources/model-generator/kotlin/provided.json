@@ -1,10 +1,10 @@
 {
   "AggregationDatas": "kotlin.String",
   "BlockNumber": "java.math.BigInteger",
-  "edsig": "kotlin.String",
+  "Edsig": "kotlin.String",
   "Address": "kotlin.String",
   "Word": "kotlin.String",
   "BigDecimal": "java.math.BigDecimal",
   "BigInteger": "java.math.BigInteger",
-  "edpk": "kotlin.String"
+  "Edpk": "kotlin.String"
 }

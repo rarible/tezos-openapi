@@ -36,10 +36,6 @@ open class TezosApiClientFactory(
         return OrderSignatureControllerApi(createApiClient())
     }
 
-    fun createOrderAggregationApiClient(): OrderAggregationControllerApi {
-        return OrderAggregationControllerApi(createApiClient())
-    }
-
     private fun createApiClient(): ApiClient {
         return ApiClient(webClientCustomizer)
             .setBasePath(uriProvider.getUri().toASCIIString())
