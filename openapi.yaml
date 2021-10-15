@@ -1354,7 +1354,6 @@ components:
         meta:
           $ref: '#/components/schemas/NftItemMeta'
       required:
-      - mintedAt
       - date
       - royalties
       - owners
