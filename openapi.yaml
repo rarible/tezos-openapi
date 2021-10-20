@@ -7,22 +7,22 @@ paths:
     description: Search activities with some filter
     post:
       tags:
-      - nft-activity-controller
+        - nft-activity-controller
       description: Search activities with some filter
       operationId: getNftActivities
       parameters:
-      - name: size
-        in: query
-        required: false
-        schema:
-          type: integer
-          minimum: 0
-          maximum: 9007199254740992
-      - name: continuation
-        in: query
-        required: false
-        schema:
-          type: string
+        - name: size
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 9007199254740992
+        - name: continuation
+          in: query
+          required: false
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -41,20 +41,20 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/NftActivities'
-      security: []
+      security: [ ]
   /v0.1/ownerships/{ownershipId}:
     description: Get NFT ownerships by id
     get:
       tags:
-      - nft-ownership-controller
+        - nft-ownership-controller
       description: Get NFT ownerships by id
       operationId: getNftOwnershipById
       parameters:
-      - name: ownershipId
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: ownershipId
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "500":
           description: Internal Server Error
@@ -68,37 +68,37 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/NftOwnership'
-      security: []
+      security: [ ]
   /v0.1/ownerships/byItem:
     description: Get NFT ownerships by item
     get:
       tags:
-      - nft-ownership-controller
+        - nft-ownership-controller
       description: Get NFT ownerships by item
       operationId: getNftOwnershipByItem
       parameters:
-      - name: contract
-        in: query
-        required: false
-        schema:
-          $ref: '#/components/schemas/Address'
-      - name: tokenId
-        in: query
-        required: false
-        schema:
-          $ref: '#/components/schemas/BigInteger'
-      - name: size
-        in: query
-        required: false
-        schema:
-          type: integer
-          minimum: 0
-          maximum: 9007199254740992
-      - name: continuation
-        in: query
-        required: false
-        schema:
-          type: string
+        - name: contract
+          in: query
+          required: false
+          schema:
+            $ref: '#/components/schemas/Address'
+        - name: tokenId
+          in: query
+          required: false
+          schema:
+            $ref: '#/components/schemas/BigInteger'
+        - name: size
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 9007199254740992
+        - name: continuation
+          in: query
+          required: false
+          schema:
+            type: string
       responses:
         "500":
           description: Internal Server Error
@@ -112,27 +112,27 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/NftOwnerships'
-      security: []
+      security: [ ]
   /v0.1/ownerships/all:
     description: Get NFT all ownerships
     get:
       tags:
-      - nft-ownership-controller
+        - nft-ownership-controller
       description: Get NFT all ownerships
       operationId: getNftAllOwnerships
       parameters:
-      - name: size
-        in: query
-        required: false
-        schema:
-          type: integer
-          minimum: 0
-          maximum: 9007199254740992
-      - name: continuation
-        in: query
-        required: false
-        schema:
-          type: string
+        - name: size
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 9007199254740992
+        - name: continuation
+          in: query
+          required: false
+          schema:
+            type: string
       responses:
         "500":
           description: Internal Server Error
@@ -146,20 +146,20 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/NftOwnerships'
-      security: []
+      security: [ ]
   /v0.1/items/{itemId}/meta:
     description: Get NFT item by meta id
     get:
       tags:
-      - nft-item-controller
+        - nft-item-controller
       description: Get NFT item by meta id
       operationId: getNftItemMetaById
       parameters:
-      - name: itemId
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: itemId
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "500":
           description: Internal Server Error
@@ -173,25 +173,25 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/NftItemMeta'
-      security: []
+      security: [ ]
   /v0.1/items/{itemId}:
     description: Get NFT item by id
     get:
       tags:
-      - nft-item-controller
+        - nft-item-controller
       description: Get NFT item by id
       operationId: getNftItemById
       parameters:
-      - name: includeMeta
-        in: query
-        required: false
-        schema:
-          type: boolean
-      - name: itemId
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: includeMeta
+          in: query
+          required: false
+          schema:
+            type: boolean
+        - name: itemId
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "500":
           description: Internal Server Error
@@ -205,37 +205,37 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/NftItem'
-      security: []
+      security: [ ]
   /v0.1/items/byOwner:
     description: Get NFT items by owner
     get:
       tags:
-      - nft-item-controller
+        - nft-item-controller
       description: Get NFT items by owner
       operationId: getNftItemsByOwner
       parameters:
-      - name: owner
-        in: query
-        required: false
-        schema:
-          $ref: '#/components/schemas/Address'
-      - name: includeMeta
-        in: query
-        required: false
-        schema:
-          type: boolean
-      - name: size
-        in: query
-        required: false
-        schema:
-          type: integer
-          minimum: 0
-          maximum: 9007199254740992
-      - name: continuation
-        in: query
-        required: false
-        schema:
-          type: string
+        - name: owner
+          in: query
+          required: false
+          schema:
+            $ref: '#/components/schemas/Address'
+        - name: includeMeta
+          in: query
+          required: false
+          schema:
+            type: boolean
+        - name: size
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 9007199254740992
+        - name: continuation
+          in: query
+          required: false
+          schema:
+            type: string
       responses:
         "500":
           description: Internal Server Error
@@ -249,37 +249,37 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/NftItems'
-      security: []
+      security: [ ]
   /v0.1/items/byCreator:
     description: Get NFT items by creator
     get:
       tags:
-      - nft-item-controller
+        - nft-item-controller
       description: Get NFT items by creator
       operationId: getNftItemsByCreator
       parameters:
-      - name: creator
-        in: query
-        required: false
-        schema:
-          $ref: '#/components/schemas/Address'
-      - name: includeMeta
-        in: query
-        required: false
-        schema:
-          type: boolean
-      - name: size
-        in: query
-        required: false
-        schema:
-          type: integer
-          minimum: 0
-          maximum: 9007199254740992
-      - name: continuation
-        in: query
-        required: false
-        schema:
-          type: string
+        - name: creator
+          in: query
+          required: false
+          schema:
+            $ref: '#/components/schemas/Address'
+        - name: includeMeta
+          in: query
+          required: false
+          schema:
+            type: boolean
+        - name: size
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 9007199254740992
+        - name: continuation
+          in: query
+          required: false
+          schema:
+            type: string
       responses:
         "500":
           description: Internal Server Error
@@ -293,37 +293,37 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/NftItems'
-      security: []
+      security: [ ]
   /v0.1/items/byCollection:
     description: items_by_collection
     get:
       tags:
-      - nft-item-controller
+        - nft-item-controller
       description: items_by_collection
       operationId: getNftItemsByCollection
       parameters:
-      - name: collection
-        in: query
-        required: false
-        schema:
-          $ref: '#/components/schemas/Address'
-      - name: includeMeta
-        in: query
-        required: false
-        schema:
-          type: boolean
-      - name: size
-        in: query
-        required: false
-        schema:
-          type: integer
-          minimum: 0
-          maximum: 9007199254740992
-      - name: continuation
-        in: query
-        required: false
-        schema:
-          type: string
+        - name: collection
+          in: query
+          required: false
+          schema:
+            $ref: '#/components/schemas/Address'
+        - name: includeMeta
+          in: query
+          required: false
+          schema:
+            type: boolean
+        - name: size
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 9007199254740992
+        - name: continuation
+          in: query
+          required: false
+          schema:
+            type: string
       responses:
         "500":
           description: Internal Server Error
@@ -337,20 +337,20 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/NftItems'
-      security: []
+      security: [ ]
   /v0.1/collections/{collection}/generate_token_id:
     description: collections_generate_id
     get:
       tags:
-      - nft-collection-controller
+        - nft-collection-controller
       description: collections_generate_id
       operationId: generateNftTokenId
       parameters:
-      - name: collection
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: collection
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "500":
           description: Internal Server Error
@@ -364,20 +364,20 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/NftTokenId'
-      security: []
+      security: [ ]
   /v0.1/collections/{collection}:
     description: collections_by_id
     get:
       tags:
-      - nft-collection-controller
+        - nft-collection-controller
       description: collections_by_id
       operationId: getNftCollectionById
       parameters:
-      - name: collection
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: collection
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "500":
           description: Internal Server Error
@@ -391,32 +391,32 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/NftCollection'
-      security: []
+      security: [ ]
   /v0.1/collections/byOwner:
     description: collections_by_owner
     get:
       tags:
-      - nft-collection-controller
+        - nft-collection-controller
       description: collections_by_owner
       operationId: searchNftCollectionsByOwner
       parameters:
-      - name: owner
-        in: query
-        required: false
-        schema:
-          $ref: '#/components/schemas/Address'
-      - name: size
-        in: query
-        required: false
-        schema:
-          type: integer
-          minimum: 0
-          maximum: 9007199254740992
-      - name: continuation
-        in: query
-        required: false
-        schema:
-          type: string
+        - name: owner
+          in: query
+          required: false
+          schema:
+            $ref: '#/components/schemas/Address'
+        - name: size
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 9007199254740992
+        - name: continuation
+          in: query
+          required: false
+          schema:
+            type: string
       responses:
         "500":
           description: Internal Server Error
@@ -430,27 +430,27 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/NftCollections'
-      security: []
+      security: [ ]
   /v0.1/collections/all:
     description: collections_all
     get:
       tags:
-      - nft-collection-controller
+        - nft-collection-controller
       description: collections_all
       operationId: searchNftAllCollections
       parameters:
-      - name: size
-        in: query
-        required: false
-        schema:
-          type: integer
-          minimum: 0
-          maximum: 9007199254740992
-      - name: continuation
-        in: query
-        required: false
-        schema:
-          type: string
+        - name: size
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 9007199254740992
+        - name: continuation
+          in: query
+          required: false
+          schema:
+            type: string
       responses:
         "500":
           description: Internal Server Error
@@ -464,15 +464,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/NftCollections'
-      security: []
+      security: [ ]
   /v0.1/orders:
     description: Create or update an order
     post:
       tags:
-      - order-controller
+        - order-controller
       description: Create or update an order
       operationId: upsertOrder
-      parameters: []
+      parameters: [ ]
       requestBody:
         content:
           application/json:
@@ -491,32 +491,32 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Order'
-      security: []
+      security: [ ]
   /v0.1/orders/all:
     description: Get all orders
     get:
       tags:
-      - order-controller
+        - order-controller
       description: Get all orders
       operationId: getOrdersAll
       parameters:
-      - name: origin
-        in: query
-        required: false
-        schema:
-          $ref: '#/components/schemas/Address'
-      - name: size
-        in: query
-        required: false
-        schema:
-          type: integer
-          minimum: 0
-          maximum: 9007199254740992
-      - name: continuation
-        in: query
-        required: false
-        schema:
-          type: string
+        - name: origin
+          in: query
+          required: false
+          schema:
+            $ref: '#/components/schemas/Address'
+        - name: size
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 9007199254740992
+        - name: continuation
+          in: query
+          required: false
+          schema:
+            type: string
       responses:
         "500":
           description: Internal Server Error
@@ -530,20 +530,20 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/OrderPagination'
-      security: []
+      security: [ ]
   /v0.1/orders/{hash}:
     description: Get order by hash
     get:
       tags:
-      - order-controller
+        - order-controller
       description: Get order by hash
       operationId: getOrderByHash
       parameters:
-      - name: hash
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: hash
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "500":
           description: Internal Server Error
@@ -557,37 +557,37 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Order'
-      security: []
+      security: [ ]
   /v0.1/orders/sell/byMaker:
     description: Get sell order by maker
     get:
       tags:
-      - order-controller
+        - order-controller
       description: Get sell order by maker
       operationId: getSellOrdersByMaker
       parameters:
-      - name: maker
-        in: query
-        required: false
-        schema:
-          $ref: '#/components/schemas/Address'
-      - name: origin
-        in: query
-        required: false
-        schema:
-          $ref: '#/components/schemas/Address'
-      - name: size
-        in: query
-        required: false
-        schema:
-          type: integer
-          minimum: 0
-          maximum: 9007199254740992
-      - name: continuation
-        in: query
-        required: false
-        schema:
-          type: string
+        - name: maker
+          in: query
+          required: false
+          schema:
+            $ref: '#/components/schemas/Address'
+        - name: origin
+          in: query
+          required: false
+          schema:
+            $ref: '#/components/schemas/Address'
+        - name: size
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 9007199254740992
+        - name: continuation
+          in: query
+          required: false
+          schema:
+            type: string
       responses:
         "500":
           description: Internal Server Error
@@ -601,47 +601,47 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/OrderPagination'
-      security: []
+      security: [ ]
   /v0.1/orders/sell/byItem:
     description: Get sell order by item
     get:
       tags:
-      - order-controller
+        - order-controller
       description: Get sell order by item
       operationId: getSellOrderByItem
       parameters:
-      - name: contract
-        in: query
-        required: false
-        schema:
-          $ref: '#/components/schemas/Address'
-      - name: tokenId
-        in: query
-        required: false
-        schema:
-          $ref: '#/components/schemas/BigInteger'
-      - name: maker
-        in: query
-        required: false
-        schema:
-          $ref: '#/components/schemas/Address'
-      - name: origin
-        in: query
-        required: false
-        schema:
-          $ref: '#/components/schemas/Address'
-      - name: size
-        in: query
-        required: false
-        schema:
-          type: integer
-          minimum: 0
-          maximum: 9007199254740992
-      - name: continuation
-        in: query
-        required: false
-        schema:
-          type: string
+        - name: contract
+          in: query
+          required: false
+          schema:
+            $ref: '#/components/schemas/Address'
+        - name: tokenId
+          in: query
+          required: false
+          schema:
+            $ref: '#/components/schemas/BigInteger'
+        - name: maker
+          in: query
+          required: false
+          schema:
+            $ref: '#/components/schemas/Address'
+        - name: origin
+          in: query
+          required: false
+          schema:
+            $ref: '#/components/schemas/Address'
+        - name: size
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 9007199254740992
+        - name: continuation
+          in: query
+          required: false
+          schema:
+            type: string
       responses:
         "500":
           description: Internal Server Error
@@ -655,37 +655,37 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/OrderPagination'
-      security: []
+      security: [ ]
   /v0.1/orders/sell/byCollection:
     description: Get sell orders by collection
     get:
       tags:
-      - order-controller
+        - order-controller
       description: Get sell orders by collection
       operationId: getSellOrdersByCollection
       parameters:
-      - name: collection
-        in: query
-        required: false
-        schema:
-          $ref: '#/components/schemas/Address'
-      - name: origin
-        in: query
-        required: false
-        schema:
-          $ref: '#/components/schemas/Address'
-      - name: size
-        in: query
-        required: false
-        schema:
-          type: integer
-          minimum: 0
-          maximum: 9007199254740992
-      - name: continuation
-        in: query
-        required: false
-        schema:
-          type: string
+        - name: collection
+          in: query
+          required: false
+          schema:
+            $ref: '#/components/schemas/Address'
+        - name: origin
+          in: query
+          required: false
+          schema:
+            $ref: '#/components/schemas/Address'
+        - name: size
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 9007199254740992
+        - name: continuation
+          in: query
+          required: false
+          schema:
+            type: string
       responses:
         "500":
           description: Internal Server Error
@@ -699,32 +699,32 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/OrderPagination'
-      security: []
+      security: [ ]
   /v0.1/orders/sell:
     description: Get sell orders
     get:
       tags:
-      - order-controller
+        - order-controller
       description: Get sell orders
       operationId: getSellOrders
       parameters:
-      - name: origin
-        in: query
-        required: false
-        schema:
-          $ref: '#/components/schemas/Address'
-      - name: size
-        in: query
-        required: false
-        schema:
-          type: integer
-          minimum: 0
-          maximum: 9007199254740992
-      - name: continuation
-        in: query
-        required: false
-        schema:
-          type: string
+        - name: origin
+          in: query
+          required: false
+          schema:
+            $ref: '#/components/schemas/Address'
+        - name: size
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 9007199254740992
+        - name: continuation
+          in: query
+          required: false
+          schema:
+            type: string
       responses:
         "500":
           description: Internal Server Error
@@ -738,37 +738,37 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/OrderPagination'
-      security: []
+      security: [ ]
   /v0.1/orders/bids/byMaker:
     description: Get order bids by maker
     get:
       tags:
-      - order-controller
+        - order-controller
       description: Get order bids by maker
       operationId: getOrderBidsByMaker
       parameters:
-      - name: maker
-        in: query
-        required: false
-        schema:
-          $ref: '#/components/schemas/Address'
-      - name: origin
-        in: query
-        required: false
-        schema:
-          $ref: '#/components/schemas/Address'
-      - name: size
-        in: query
-        required: false
-        schema:
-          type: integer
-          minimum: 0
-          maximum: 9007199254740992
-      - name: continuation
-        in: query
-        required: false
-        schema:
-          type: string
+        - name: maker
+          in: query
+          required: false
+          schema:
+            $ref: '#/components/schemas/Address'
+        - name: origin
+          in: query
+          required: false
+          schema:
+            $ref: '#/components/schemas/Address'
+        - name: size
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 9007199254740992
+        - name: continuation
+          in: query
+          required: false
+          schema:
+            type: string
       responses:
         "500":
           description: Internal Server Error
@@ -782,47 +782,47 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/OrderPagination'
-      security: []
+      security: [ ]
   /v0.1/orders/bids/byItem:
     description: Get order bids by item
     get:
       tags:
-      - order-controller
+        - order-controller
       description: Get order bids by item
       operationId: getOrderBidsByItem
       parameters:
-      - name: contract
-        in: query
-        required: false
-        schema:
-          $ref: '#/components/schemas/Address'
-      - name: tokenId
-        in: query
-        required: false
-        schema:
-          $ref: '#/components/schemas/BigInteger'
-      - name: maker
-        in: query
-        required: false
-        schema:
-          $ref: '#/components/schemas/Address'
-      - name: origin
-        in: query
-        required: false
-        schema:
-          $ref: '#/components/schemas/Address'
-      - name: size
-        in: query
-        required: false
-        schema:
-          type: integer
-          minimum: 0
-          maximum: 9007199254740992
-      - name: continuation
-        in: query
-        required: false
-        schema:
-          type: string
+        - name: contract
+          in: query
+          required: false
+          schema:
+            $ref: '#/components/schemas/Address'
+        - name: tokenId
+          in: query
+          required: false
+          schema:
+            $ref: '#/components/schemas/BigInteger'
+        - name: maker
+          in: query
+          required: false
+          schema:
+            $ref: '#/components/schemas/Address'
+        - name: origin
+          in: query
+          required: false
+          schema:
+            $ref: '#/components/schemas/Address'
+        - name: size
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 9007199254740992
+        - name: continuation
+          in: query
+          required: false
+          schema:
+            type: string
       responses:
         "500":
           description: Internal Server Error
@@ -836,27 +836,27 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/OrderPagination'
-      security: []
+      security: [ ]
   /v0.1/order/activities/search:
     description: get Order activities with some filter
     post:
       tags:
-      - order-activity-controller
+        - order-activity-controller
       description: get Order activities with some filter
       operationId: getOrderActivities
       parameters:
-      - name: size
-        in: query
-        required: false
-        schema:
-          type: integer
-          minimum: 0
-          maximum: 9007199254740992
-      - name: continuation
-        in: query
-        required: false
-        schema:
-          type: string
+        - name: size
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 9007199254740992
+        - name: continuation
+          in: query
+          required: false
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -875,15 +875,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/OrderActivities'
-      security: []
+      security: [ ]
   /v0.1/order/signature/validate:
     description: Validate a message
     post:
       tags:
-      - order-signature-controller
+        - order-signature-controller
       description: Validate a message
       operationId: validate
-      parameters: []
+      parameters: [ ]
       requestBody:
         content:
           application/json:
@@ -902,7 +902,7 @@ paths:
             application/json:
               schema:
                 type: boolean
-      security: []
+      security: [ ]
 components:
   schemas:
     Address:
@@ -915,14 +915,14 @@ components:
         value:
           $ref: '#/components/schemas/BigDecimal'
       required:
-      - value
-      - assetType
+        - value
+        - assetType
       additionalProperties: false
     AssetType:
       oneOf:
-      - $ref: '#/components/schemas/XTZAssetType'
-      - $ref: '#/components/schemas/FA_1_2AssetType'
-      - $ref: '#/components/schemas/FA_2AssetType'
+        - $ref: '#/components/schemas/XTZAssetType'
+        - $ref: '#/components/schemas/FA_1_2AssetType'
+        - $ref: '#/components/schemas/FA_2AssetType'
     BigDecimal:
       type: string
     BigInteger:
@@ -937,7 +937,7 @@ components:
         '@type':
           type: string
           enum:
-          - burn
+            - burn
         owner:
           $ref: '#/components/schemas/Address'
         contract:
@@ -956,14 +956,14 @@ components:
           type: integer
       required:
         - blockNumber
-      - blockHash
+        - blockHash
         - logIndex
-      - transactionHash
-      - value
-      - tokenId
-      - contract
-      - owner
-      - '@type'
+        - transactionHash
+        - value
+        - tokenId
+        - contract
+        - owner
+        - '@type'
       additionalProperties: false
     Error500:
       type: object
@@ -977,23 +977,23 @@ components:
         code:
           type: string
           enum:
-          - UNKNOWN
-          - VALIDATION
-          - FIRST_TEMPLATE_OBJECT_NOT_FOUND
-          - SECOND_TEMPLATE_OBJECT_NOT_FOUND
-          - BAD_REQUEST
-          - TOKEN_PROPERTIES_EXTRACT
-          - INCORRECT_LAZY_NFT
-          - INVALID_ARGUMENT
-          - ABSENCE_OF_REQUIRED_FIELD
-          - UNLOCKABLE_API_ERROR
-          - NFT_API_ERROR
-          - ORDER_API_ERROR
-          - UNEXPECTED_API_ERROR
+            - UNKNOWN
+            - VALIDATION
+            - FIRST_TEMPLATE_OBJECT_NOT_FOUND
+            - SECOND_TEMPLATE_OBJECT_NOT_FOUND
+            - BAD_REQUEST
+            - TOKEN_PROPERTIES_EXTRACT
+            - INCORRECT_LAZY_NFT
+            - INVALID_ARGUMENT
+            - ABSENCE_OF_REQUIRED_FIELD
+            - UNLOCKABLE_API_ERROR
+            - NFT_API_ERROR
+            - ORDER_API_ERROR
+            - UNEXPECTED_API_ERROR
       required:
-      - code
-      - message
-      - status
+        - code
+        - message
+        - status
       additionalProperties: false
     Edpk:
       type: string
@@ -1005,12 +1005,12 @@ components:
         assetClass:
           type: string
           enum:
-          - FA_1_2
+            - FA_1_2
         contract:
           $ref: '#/components/schemas/Address'
       required:
-      - contract
-      - assetClass
+        - contract
+        - assetClass
       additionalProperties: false
     FA_2AssetType:
       type: object
@@ -1018,15 +1018,15 @@ components:
         assetClass:
           type: string
           enum:
-          - FA_2
+            - FA_2
         contract:
           $ref: '#/components/schemas/Address'
         tokenId:
           $ref: '#/components/schemas/BigInteger'
       required:
-      - tokenId
-      - contract
-      - assetClass
+        - tokenId
+        - contract
+        - assetClass
       additionalProperties: false
     INVALID_ARGUMENT:
       type: object
@@ -1034,31 +1034,31 @@ components:
         code:
           type: string
           enum:
-          - INVALID_ARGUMENT
+            - INVALID_ARGUMENT
         message:
           type: string
       required:
-      - message
-      - code
+        - message
+        - code
       additionalProperties: false
     ItemHistory:
       oneOf:
-      - $ref: '#/components/schemas/ItemRoyalty'
-      - $ref: '#/components/schemas/ItemTransfer'
+        - $ref: '#/components/schemas/ItemRoyalty'
+        - $ref: '#/components/schemas/ItemTransfer'
     ItemRoyalty:
       type: object
       properties:
         type:
           type: string
           enum:
-          - ROYALTY
+            - ROYALTY
         royalties:
           type: array
           items:
             $ref: '#/components/schemas/Part'
       required:
-      - royalties
-      - type
+        - royalties
+        - type
       additionalProperties: false
     ItemTransfer:
       type: object
@@ -1066,7 +1066,7 @@ components:
         type:
           type: string
           enum:
-          - TRANSFER
+            - TRANSFER
         owner:
           $ref: '#/components/schemas/Address'
         value:
@@ -1074,8 +1074,8 @@ components:
         from:
           $ref: '#/components/schemas/Address'
       required:
-      - from
-      - type
+        - from
+        - type
       additionalProperties: false
     ItemTransferElt:
       type: object
@@ -1083,12 +1083,12 @@ components:
         type:
           type: string
           enum:
-          - TRANSFER
+            - TRANSFER
         from:
           $ref: '#/components/schemas/Address'
       required:
-      - from
-      - type
+        - from
+        - type
       additionalProperties: false
     Mint:
       type: object
@@ -1096,7 +1096,7 @@ components:
         '@type':
           type: string
           enum:
-          - mint
+            - mint
         owner:
           $ref: '#/components/schemas/Address'
         contract:
@@ -1115,14 +1115,14 @@ components:
           type: integer
       required:
         - blockNumber
-      - blockHash
+        - blockHash
         - logIndex
-      - transactionHash
-      - value
-      - tokenId
-      - contract
-      - owner
-      - '@type'
+        - transactionHash
+        - value
+        - tokenId
+        - contract
+        - owner
+        - '@type'
       additionalProperties: false
     NftActivities:
       type: object
@@ -1134,7 +1134,7 @@ components:
           items:
             $ref: '#/components/schemas/NftActivityType'
       required:
-      - items
+        - items
       additionalProperties: false
     NftActivityElt:
       type: object
@@ -1157,48 +1157,48 @@ components:
           type: integer
       required:
         - blockNumber
-      - blockHash
+        - blockHash
         - logIndex
-      - transactionHash
-      - value
-      - tokenId
-      - contract
-      - owner
+        - transactionHash
+        - value
+        - tokenId
+        - contract
+        - owner
       additionalProperties: false
     NftActivityFilter:
       oneOf:
-      - $ref: '#/components/schemas/NftActivityFilterAll'
-      - $ref: '#/components/schemas/NftActivityFilterByUser'
-      - $ref: '#/components/schemas/NftActivityFilterByItem'
-      - $ref: '#/components/schemas/NftActivityFilterByCollection'
+        - $ref: '#/components/schemas/NftActivityFilterAll'
+        - $ref: '#/components/schemas/NftActivityFilterByUser'
+        - $ref: '#/components/schemas/NftActivityFilterByItem'
+        - $ref: '#/components/schemas/NftActivityFilterByCollection'
     NftActivityFilterAll:
       type: object
       properties:
         '@type':
           type: string
           enum:
-          - all
+            - all
         types:
           type: array
           items:
             $ref: '#/components/schemas/NftActivityFilterAllType'
       required:
-      - types
-      - '@type'
+        - types
+        - '@type'
       additionalProperties: false
     NftActivityFilterAllType:
       type: string
       enum:
-      - TRANSFER
-      - MINT
-      - BURN
+        - TRANSFER
+        - MINT
+        - BURN
     NftActivityFilterByCollection:
       type: object
       properties:
         '@type':
           type: string
           enum:
-          - by_collection
+            - by_collection
         types:
           type: array
           items:
@@ -1206,9 +1206,9 @@ components:
         contract:
           $ref: '#/components/schemas/Address'
       required:
-      - contract
-      - types
-      - '@type'
+        - contract
+        - types
+        - '@type'
       additionalProperties: false
     NftActivityFilterByItem:
       type: object
@@ -1216,7 +1216,7 @@ components:
         '@type':
           type: string
           enum:
-          - by_item
+            - by_item
         types:
           type: array
           items:
@@ -1226,10 +1226,10 @@ components:
         tokenId:
           $ref: '#/components/schemas/BigInteger'
       required:
-      - tokenId
-      - contract
-      - types
-      - '@type'
+        - tokenId
+        - contract
+        - types
+        - '@type'
       additionalProperties: false
     NftActivityFilterByUser:
       type: object
@@ -1237,7 +1237,7 @@ components:
         '@type':
           type: string
           enum:
-          - by_user
+            - by_user
         types:
           type: array
           items:
@@ -1247,22 +1247,22 @@ components:
           items:
             $ref: '#/components/schemas/Address'
       required:
-      - users
-      - types
-      - '@type'
+        - users
+        - types
+        - '@type'
       additionalProperties: false
     NftActivityFilterUserType:
       type: string
       enum:
-      - TRANSFER_FROM
-      - TRANSFER_TO
-      - MINT
-      - BURN
+        - TRANSFER_FROM
+        - TRANSFER_TO
+        - MINT
+        - BURN
     NftActivityType:
       oneOf:
-      - $ref: '#/components/schemas/Mint'
-      - $ref: '#/components/schemas/Burn'
-      - $ref: '#/components/schemas/Transfer'
+        - $ref: '#/components/schemas/Mint'
+        - $ref: '#/components/schemas/Burn'
+        - $ref: '#/components/schemas/Transfer'
     NftCollection:
       type: object
       properties:
@@ -1287,25 +1287,25 @@ components:
           items:
             $ref: '#/components/schemas/Address'
       required:
-      - supports_lazy_mint
-      - features
-      - name
-      - type
-      - id
+        - supports_lazy_mint
+        - features
+        - name
+        - type
+        - id
       additionalProperties: false
     NftCollectionFeature:
       type: string
       enum:
-      - APPROVE_FOR_ALL
-      - SET_URI_PREFIX
-      - BURN
-      - MINT_WITH_ADDRESS
-      - SECONDARY_SALE_FEES
-      - MINT_AND_TRANSFER
+        - APPROVE_FOR_ALL
+        - SET_URI_PREFIX
+        - BURN
+        - MINT_WITH_ADDRESS
+        - SECONDARY_SALE_FEES
+        - MINT_AND_TRANSFER
     NftCollectionType:
       type: string
       enum:
-      - FA_2
+        - FA_2
     NftCollections:
       type: object
       properties:
@@ -1320,8 +1320,8 @@ components:
           items:
             $ref: '#/components/schemas/NftCollection'
       required:
-      - collections
-      - total
+        - collections
+        - total
       additionalProperties: false
     NftItem:
       type: object
@@ -1363,16 +1363,16 @@ components:
         meta:
           $ref: '#/components/schemas/NftItemMeta'
       required:
-      - mintedAt
-      - date
-      - royalties
-      - owners
-      - lazySupply
-      - supply
-      - creators
-      - tokenId
-      - contract
-      - id
+        - mintedAt
+        - date
+        - royalties
+        - owners
+        - lazySupply
+        - supply
+        - creators
+        - tokenId
+        - contract
+        - id
       additionalProperties: false
     NftItemAttribute:
       type: object
@@ -1386,7 +1386,7 @@ components:
         format:
           type: string
       required:
-      - key
+        - key
       additionalProperties: false
     NftItemMeta:
       type: object
@@ -1404,7 +1404,7 @@ components:
         animation:
           type: string
       required:
-      - name
+        - name
       additionalProperties: false
     NftItems:
       type: object
@@ -1420,8 +1420,8 @@ components:
           items:
             $ref: '#/components/schemas/NftItem'
       required:
-      - items
-      - total
+        - items
+        - total
       additionalProperties: false
     NftOwnership:
       type: object
@@ -1450,15 +1450,15 @@ components:
           items:
             $ref: '#/components/schemas/ItemHistory'
       required:
-      - pending
-      - date
-      - lazyValue
-      - value
-      - creators
-      - owner
-      - tokenId
-      - contract
-      - id
+        - pending
+        - date
+        - lazyValue
+        - value
+        - creators
+        - owner
+        - tokenId
+        - contract
+        - id
       additionalProperties: false
     NftOwnerships:
       type: object
@@ -1474,8 +1474,8 @@ components:
           items:
             $ref: '#/components/schemas/NftOwnership'
       required:
-      - ownerships
-      - total
+        - ownerships
+        - total
       additionalProperties: false
     NftSignature:
       type: object
@@ -1487,9 +1487,9 @@ components:
         v:
           $ref: '#/components/schemas/Edsig'
       required:
-      - v
-      - s
-      - r
+        - v
+        - s
+        - r
       additionalProperties: false
     NftTokenId:
       type: object
@@ -1499,7 +1499,7 @@ components:
         signature:
           $ref: '#/components/schemas/NftSignature'
       required:
-      - tokenId
+        - tokenId
       additionalProperties: false
     Order:
       type: object
@@ -1559,22 +1559,22 @@ components:
         type:
           type: string
           enum:
-          - RARIBLE_V2
+            - RARIBLE_V2
       required:
-      - type
-      - hash
-      - lastUpdateAt
-      - createdAt
-      - signature
-      - salt
-      - cancelled
-      - makeStock
-      - fill
-      - take
-      - make
-      - makerEdpk
-      - maker
-      - data
+        - type
+        - hash
+        - lastUpdateAt
+        - createdAt
+        - signature
+        - salt
+        - cancelled
+        - makeStock
+        - fill
+        - take
+        - make
+        - makerEdpk
+        - maker
+        - data
       additionalProperties: false
     OrderActivities:
       type: object
@@ -1587,7 +1587,7 @@ components:
         continuation:
           type: string
       required:
-      - items
+        - items
       additionalProperties: false
     OrderActivityBid:
       type: object
@@ -1595,7 +1595,7 @@ components:
         '@type':
           type: string
           enum:
-          - bid
+            - bid
         hash:
           $ref: '#/components/schemas/Word'
         maker:
@@ -1607,12 +1607,12 @@ components:
         price:
           $ref: '#/components/schemas/BigDecimal'
       required:
-      - price
-      - take
-      - make
-      - maker
-      - hash
-      - '@type'
+        - price
+        - take
+        - make
+        - maker
+        - hash
+        - '@type'
       additionalProperties: false
     OrderActivityCancelBid:
       type: object
@@ -1620,7 +1620,7 @@ components:
         '@type':
           type: string
           enum:
-          - cancel_bid
+            - cancel_bid
         hash:
           $ref: '#/components/schemas/Word'
         maker:
@@ -1640,15 +1640,15 @@ components:
           minimum: -1073741824
           maximum: 1073741823
       required:
-      - logIndex
-      - blockNumber
-      - blockHash
-      - transactionHash
-      - take
-      - make
-      - maker
-      - hash
-      - '@type'
+        - logIndex
+        - blockNumber
+        - blockHash
+        - transactionHash
+        - take
+        - make
+        - maker
+        - hash
+        - '@type'
       additionalProperties: false
     OrderActivityCancelList:
       type: object
@@ -1656,7 +1656,7 @@ components:
         '@type':
           type: string
           enum:
-          - cancel_list
+            - cancel_list
         hash:
           $ref: '#/components/schemas/Word'
         maker:
@@ -1676,50 +1676,50 @@ components:
           minimum: -1073741824
           maximum: 1073741823
       required:
-      - logIndex
-      - blockNumber
-      - blockHash
-      - transactionHash
-      - take
-      - make
-      - maker
-      - hash
-      - '@type'
+        - logIndex
+        - blockNumber
+        - blockHash
+        - transactionHash
+        - take
+        - make
+        - maker
+        - hash
+        - '@type'
       additionalProperties: false
     OrderActivityFilter:
       oneOf:
-      - $ref: '#/components/schemas/OrderActivityFilterAll'
-      - $ref: '#/components/schemas/OrderActivityFilterByUser'
-      - $ref: '#/components/schemas/OrderActivityFilterByItem'
-      - $ref: '#/components/schemas/OrderActivityFilterByCollection'
+        - $ref: '#/components/schemas/OrderActivityFilterAll'
+        - $ref: '#/components/schemas/OrderActivityFilterByUser'
+        - $ref: '#/components/schemas/OrderActivityFilterByItem'
+        - $ref: '#/components/schemas/OrderActivityFilterByCollection'
     OrderActivityFilterAll:
       type: object
       properties:
         '@type':
           type: string
           enum:
-          - all
+            - all
         types:
           type: array
           items:
             $ref: '#/components/schemas/OrderActivityFilterAllType'
       required:
-      - types
-      - '@type'
+        - types
+        - '@type'
       additionalProperties: false
     OrderActivityFilterAllType:
       type: string
       enum:
-      - BID
-      - LIST
-      - MATCH
+        - BID
+        - LIST
+        - MATCH
     OrderActivityFilterByCollection:
       type: object
       properties:
         '@type':
           type: string
           enum:
-          - by_collection
+            - by_collection
         types:
           type: array
           items:
@@ -1727,9 +1727,9 @@ components:
         contract:
           $ref: '#/components/schemas/Address'
       required:
-      - contract
-      - types
-      - '@type'
+        - contract
+        - types
+        - '@type'
       additionalProperties: false
     OrderActivityFilterByItem:
       type: object
@@ -1737,7 +1737,7 @@ components:
         '@type':
           type: string
           enum:
-          - by_item
+            - by_item
         types:
           type: array
           items:
@@ -1747,10 +1747,10 @@ components:
         tokenId:
           $ref: '#/components/schemas/BigInteger'
       required:
-      - tokenId
-      - contract
-      - types
-      - '@type'
+        - tokenId
+        - contract
+        - types
+        - '@type'
       additionalProperties: false
     OrderActivityFilterByUser:
       type: object
@@ -1758,7 +1758,7 @@ components:
         '@type':
           type: string
           enum:
-          - by_user
+            - by_user
         types:
           type: array
           items:
@@ -1768,25 +1768,25 @@ components:
           items:
             $ref: '#/components/schemas/Address'
       required:
-      - users
-      - types
-      - '@type'
+        - users
+        - types
+        - '@type'
       additionalProperties: false
     OrderActivityFilterUserType:
       type: string
       enum:
-      - MAKE_BID
-      - GET_BID
-      - LIST
-      - BUY
-      - SELL
+        - MAKE_BID
+        - GET_BID
+        - LIST
+        - BUY
+        - SELL
     OrderActivityList:
       type: object
       properties:
         '@type':
           type: string
           enum:
-          - list
+            - list
         hash:
           $ref: '#/components/schemas/Word'
         maker:
@@ -1798,12 +1798,12 @@ components:
         price:
           $ref: '#/components/schemas/BigDecimal'
       required:
-      - price
-      - take
-      - make
-      - maker
-      - hash
-      - '@type'
+        - price
+        - take
+        - make
+        - maker
+        - hash
+        - '@type'
       additionalProperties: false
     OrderActivityMatch:
       type: object
@@ -1811,7 +1811,7 @@ components:
         '@type':
           type: string
           enum:
-          - match
+            - match
         left:
           $ref: '#/components/schemas/OrderActivitySideMatch'
         right:
@@ -1829,14 +1829,14 @@ components:
           minimum: -1073741824
           maximum: 1073741823
       required:
-      - logIndex
-      - blockNumber
-      - blockHash
-      - transactionHash
-      - price
-      - right
-      - left
-      - '@type'
+        - logIndex
+        - blockNumber
+        - blockHash
+        - transactionHash
+        - price
+        - right
+        - left
+        - '@type'
       additionalProperties: false
     OrderActivitySideMatch:
       type: object
@@ -1850,30 +1850,30 @@ components:
         type:
           $ref: '#/components/schemas/OrderActivitySideType'
       required:
-      - type
-      - asset
-      - hash
-      - maker
+        - type
+        - asset
+        - hash
+        - maker
       additionalProperties: false
     OrderActivitySideType:
       type: string
       enum:
-      - SELL
-      - BID
+        - SELL
+        - BID
     OrderActivityType:
       oneOf:
-      - $ref: '#/components/schemas/OrderActivityMatch'
-      - $ref: '#/components/schemas/OrderActivityList'
-      - $ref: '#/components/schemas/OrderActivityBid'
-      - $ref: '#/components/schemas/OrderActivityCancelBid'
-      - $ref: '#/components/schemas/OrderActivityCancelList'
+        - $ref: '#/components/schemas/OrderActivityMatch'
+        - $ref: '#/components/schemas/OrderActivityList'
+        - $ref: '#/components/schemas/OrderActivityBid'
+        - $ref: '#/components/schemas/OrderActivityCancelBid'
+        - $ref: '#/components/schemas/OrderActivityCancelList'
     OrderCancel:
       type: object
       properties:
         type:
           type: string
           enum:
-          - CANCEL
+            - CANCEL
         hash:
           $ref: '#/components/schemas/Word'
         make:
@@ -1886,14 +1886,14 @@ components:
         maker:
           $ref: '#/components/schemas/Address'
       required:
-      - date
-      - hash
-      - type
+        - date
+        - hash
+        - type
       additionalProperties: false
     OrderExchangeHistory:
       oneOf:
-      - $ref: '#/components/schemas/OrderCancel'
-      - $ref: '#/components/schemas/OrderSideMatch'
+        - $ref: '#/components/schemas/OrderCancel'
+        - $ref: '#/components/schemas/OrderSideMatch'
     OrderForm:
       type: object
       properties:
@@ -1926,16 +1926,16 @@ components:
         type:
           type: string
           enum:
-          - RARIBLE_V2
+            - RARIBLE_V2
       required:
-      - type
-      - signature
-      - salt
-      - take
-      - make
-      - makerEdpk
-      - maker
-      - data
+        - type
+        - signature
+        - salt
+        - take
+        - make
+        - makerEdpk
+        - maker
+        - data
       additionalProperties: false
     OrderPagination:
       type: object
@@ -1947,7 +1947,7 @@ components:
         contination:
           type: string
       required:
-      - orders
+        - orders
       additionalProperties: false
     OrderPriceHistoryRecord:
       type: object
@@ -1960,9 +1960,9 @@ components:
         takeValue:
           $ref: '#/components/schemas/BigDecimal'
       required:
-      - takeValue
-      - makeValue
-      - date
+        - takeValue
+        - makeValue
+        - date
       additionalProperties: false
     OrderRaribleV2DataV1:
       type: object
@@ -1978,22 +1978,22 @@ components:
           items:
             $ref: '#/components/schemas/Part'
       required:
-      - originFees
-      - payouts
-      - dataType
+        - originFees
+        - payouts
+        - dataType
       additionalProperties: false
     OrderSide:
       type: string
       enum:
-      - LEFT
-      - RIGHT
+        - LEFT
+        - RIGHT
     OrderSideMatch:
       type: object
       properties:
         type:
           type: string
           enum:
-          - ORDER_SIDE_MATCH
+            - ORDER_SIDE_MATCH
         hash:
           $ref: '#/components/schemas/Word'
         make:
@@ -2014,19 +2014,19 @@ components:
         counterHash:
           $ref: '#/components/schemas/Word'
       required:
-      - fill
-      - date
-      - hash
-      - type
+        - fill
+        - date
+        - hash
+        - type
       additionalProperties: false
     OrderStatus:
       type: string
       enum:
-      - OACTIVE
-      - OFILLED
-      - OHISTORICAL
-      - INACTIVE
-      - CANCELLED
+        - OACTIVE
+        - OFILLED
+        - OHISTORICAL
+        - INACTIVE
+        - CANCELLED
     Part:
       type: object
       properties:
@@ -2037,8 +2037,8 @@ components:
           minimum: 0
           maximum: 2147483647
       required:
-      - value
-      - account
+        - value
+        - account
       additionalProperties: false
     SignatureValidationForm:
       type: object
@@ -2050,9 +2050,9 @@ components:
         signature:
           $ref: '#/components/schemas/Edsig'
       required:
-      - signature
-      - message
-      - signer
+        - signature
+        - message
+        - signer
       additionalProperties: false
     Transfer:
       type: object
@@ -2096,8 +2096,8 @@ components:
         message:
           type: string
       required:
-      - message
-      - code
+        - message
+        - code
       additionalProperties: false
     VALIDATION:
       type: object
@@ -2105,12 +2105,12 @@ components:
         code:
           type: string
           enum:
-          - VALIDATION
+            - VALIDATION
         message:
           type: string
       required:
-      - message
-      - code
+        - message
+        - code
       additionalProperties: false
     Word:
       type: string
@@ -2120,8 +2120,8 @@ components:
         assetClass:
           type: string
           enum:
-          - XTZ
+            - XTZ
       required:
-      - assetClass
+        - assetClass
       additionalProperties: false
-  securitySchemes: {}
+  securitySchemes: { }
