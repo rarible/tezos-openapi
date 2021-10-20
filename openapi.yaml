@@ -952,9 +952,12 @@ components:
           $ref: '#/components/schemas/Word'
         blockNumber:
           $ref: '#/components/schemas/BlockNumber'
+        logIndex:
+          type: integer
       required:
-      - blockNumber
+        - blockNumber
       - blockHash
+        - logIndex
       - transactionHash
       - value
       - tokenId
@@ -1108,9 +1111,12 @@ components:
           $ref: '#/components/schemas/Word'
         blockNumber:
           $ref: '#/components/schemas/BlockNumber'
+        logIndex:
+          type: integer
       required:
-      - blockNumber
+        - blockNumber
       - blockHash
+        - logIndex
       - transactionHash
       - value
       - tokenId
@@ -1147,9 +1153,12 @@ components:
           $ref: '#/components/schemas/Word'
         blockNumber:
           $ref: '#/components/schemas/BlockNumber'
+        logIndex:
+          type: integer
       required:
-      - blockNumber
+        - blockNumber
       - blockHash
+        - logIndex
       - transactionHash
       - value
       - tokenId
@@ -2051,23 +2060,39 @@ components:
         '@type':
           type: string
           enum:
-          - transfer
+            - transfer
         elt:
           $ref: '#/components/schemas/NftActivityElt'
         from:
           $ref: '#/components/schemas/Address'
       required:
-      - from
-      - elt
-      - '@type'
+        - from
+        - elt
+        - '@type'
       additionalProperties: false
+    ActivityType:
+      properties:
+        id:
+          type: string
+        date:
+          type: string
+          format: date-time
+        source:
+          type: string
+      required:
+        - id
+        - date
+        - source
+      oneOf:
+        - $ref: '#/components/schemas/NftActivityType'
+        - $ref: '#/components/schemas/OrderActivityType'
     UNEXPECTED_API_ERROR:
       type: object
       properties:
         code:
           type: string
           enum:
-          - UNEXPECTED_API_ERROR
+            - UNEXPECTED_API_ERROR
         message:
           type: string
       required:

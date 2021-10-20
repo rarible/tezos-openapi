@@ -1,6 +1,7 @@
 package com.rarible.protocol.tezos.subscriber
 
 import com.rarible.core.kafka.json.JsonDeserializer
+import com.rarible.protocol.tezos.dto.ActivityDto
 import com.rarible.protocol.tezos.dto.ItemEventDto
 import com.rarible.protocol.tezos.dto.OrderEventDto
 import com.rarible.protocol.tezos.dto.OwnershipEventDto
@@ -34,6 +35,10 @@ sealed class SafeJsonDeserializer : JsonDeserializer() {
 
     class OrderJsonSerializer : SafeJsonDeserializer() {
         override val errorValue = OrderEventDto(OrderEventDto.Type.SERIALIZATION_FAILED, null, null, null)
+    }
+
+    class ActivityJsonSerializer : SafeJsonDeserializer() {
+        override val errorValue = ActivityDto(null, null, null, null)
     }
 
 }

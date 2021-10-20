@@ -1,6 +1,7 @@
 package com.rarible.protocol.tezos.subscriber
 
 import com.rarible.core.kafka.RaribleKafkaConsumer
+import com.rarible.protocol.tezos.dto.ActivityDto
 import com.rarible.protocol.tezos.dto.ItemEventDto
 import com.rarible.protocol.tezos.dto.OrderEventDto
 import com.rarible.protocol.tezos.dto.OwnershipEventDto
@@ -54,6 +55,18 @@ class TezosEventsConsumerFactory(
             valueClass = OrderEventDto::class.java,
             consumerGroup = consumerGroup,
             defaultTopic = TezosEventTopicProvider.ORDER,
+            bootstrapServers = brokerReplicaSet,
+            properties = properties
+        )
+    }
+
+    fun createActivityConsumer(consumerGroup: String): RaribleKafkaConsumer<ActivityDto> {
+        return RaribleKafkaConsumer(
+            clientId = "$clientIdPrefix.tezos-activity-consumer",
+            valueDeserializerClass = SafeJsonDeserializer.ActivityJsonSerializer::class.java,
+            valueClass = ActivityDto::class.java,
+            consumerGroup = consumerGroup,
+            defaultTopic = TezosEventTopicProvider.ACTIVITY,
             bootstrapServers = brokerReplicaSet,
             properties = properties
         )
