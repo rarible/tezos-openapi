@@ -46,8 +46,8 @@
                     </schema>
                     <generators>
                         <generator>
-                            <lang>${generator.kotlin}</lang>
-                            <packageName>${generator.package}</packageName>
+                            <lang>kotlin</lang>
+                            <packageName>${codegen.package}</packageName>
                         </generator>
                     </generators>
 

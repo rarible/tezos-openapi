@@ -49,7 +49,7 @@ class TezosApiClientAutoConfigurationIt {
     @Test
     fun `test default client uri`() {
         val uri = tezosApiServiceUriProvider.getUri()
-        assertThat(uri.toString()).isEqualTo("https://test-api.tezos.com")
+        assertThat(uri.toString()).isEqualTo("https://localhost:8080/tezos/test")
     }
 
     @TestConfiguration

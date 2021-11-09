@@ -27,7 +27,7 @@ class TezosApiClientAutoConfiguration(
     @Bean
     @ConditionalOnMissingBean(TezosApiServiceUriProvider::class)
     fun tezosApiServiceUriProvider(): TezosApiServiceUriProvider {
-        return FixedTezosApiServiceUriProvider(URI("https://${applicationEnvironmentInfo.name}-api.tezos.com"))
+        return FixedTezosApiServiceUriProvider(URI("https://localhost:8080/tezos/${applicationEnvironmentInfo.name}"))
     }
 
     @Bean
