@@ -83,7 +83,7 @@
         <pluginManagement>
             <plugins>
                 <plugin>
-                    <groupId>com.rarible.protocol</groupId>
+                    <groupId>com.rarible.codegen</groupId>
                     <artifactId>model-generator-maven-plugin</artifactId>
                     <version>${rarible.codegen.model.version}</version>
                     <executions>
