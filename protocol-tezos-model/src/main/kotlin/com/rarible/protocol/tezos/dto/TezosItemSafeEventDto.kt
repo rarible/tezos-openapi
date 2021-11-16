@@ -1,6 +1,6 @@
 package com.rarible.protocol.tezos.dto
 
-data class ItemEventDto(
+data class TezosItemSafeEventDto(
     val type: Type,
     val eventId: String?,
     val itemId: String?,

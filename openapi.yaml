@@ -11,6 +11,11 @@ paths:
       description: Search activities with some filter
       operationId: getNftActivities
       parameters:
+        - name: sort
+          in: query
+          required: false
+          schema:
+            $ref: '#/components/schemas/ActivitySort'
         - name: size
           in: query
           required: false
@@ -29,18 +34,16 @@ paths:
             schema:
               $ref: '#/components/schemas/NftActivityFilter'
       responses:
-        "500":
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NftActivities'
+        '400':
+          $ref: "#/components/responses/BadRequest"
+        '500':
+          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/ownerships/{ownershipId}:
     description: Get NFT ownerships by id
@@ -56,18 +59,18 @@ paths:
           schema:
             type: string
       responses:
-        "500":
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NftOwnership'
+        '404':
+          $ref: "#/components/responses/EntityNotFound"
+        '400':
+          $ref: "#/components/responses/BadRequest"
+        '500':
+          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/ownerships/byItem:
     description: Get NFT ownerships by item
@@ -100,18 +103,16 @@ paths:
           schema:
             type: string
       responses:
-        "500":
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NftOwnerships'
+        '400':
+          $ref: "#/components/responses/BadRequest"
+        '500':
+          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/ownerships/all:
     description: Get NFT all ownerships
@@ -134,18 +135,16 @@ paths:
           schema:
             type: string
       responses:
-        "500":
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NftOwnerships'
+        '400':
+          $ref: "#/components/responses/BadRequest"
+        '500':
+          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/items/{itemId}/meta:
     description: Get NFT item by meta id
@@ -161,18 +160,18 @@ paths:
           schema:
             type: string
       responses:
-        "500":
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NftItemMeta'
+        '404':
+          $ref: "#/components/responses/EntityNotFound"
+        '400':
+          $ref: "#/components/responses/BadRequest"
+        '500':
+          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/items/{itemId}:
     description: Get NFT item by id
@@ -193,18 +192,18 @@ paths:
           schema:
             type: string
       responses:
-        "500":
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NftItem'
+        '404':
+          $ref: "#/components/responses/EntityNotFound"
+        '400':
+          $ref: "#/components/responses/BadRequest"
+        '500':
+          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/items/byOwner:
     description: Get NFT items by owner
@@ -237,18 +236,16 @@ paths:
           schema:
             type: string
       responses:
-        "500":
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NftItems'
+        '400':
+          $ref: "#/components/responses/BadRequest"
+        '500':
+          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/items/byCreator:
     description: Get NFT items by creator
@@ -281,18 +278,16 @@ paths:
           schema:
             type: string
       responses:
-        "500":
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NftItems'
+        '400':
+          $ref: "#/components/responses/BadRequest"
+        '500':
+          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/items/byCollection:
     description: items_by_collection
@@ -325,18 +320,16 @@ paths:
           schema:
             type: string
       responses:
-        "500":
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NftItems'
+        '400':
+          $ref: "#/components/responses/BadRequest"
+        '500':
+          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/collections/{collection}/generate_token_id:
     description: collections_generate_id
@@ -352,18 +345,16 @@ paths:
           schema:
             type: string
       responses:
-        "500":
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NftTokenId'
+        '400':
+          $ref: "#/components/responses/BadRequest"
+        '500':
+          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/collections/{collection}:
     description: collections_by_id
@@ -379,18 +370,16 @@ paths:
           schema:
             type: string
       responses:
-        "500":
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NftCollection'
+        '400':
+          $ref: "#/components/responses/BadRequest"
+        '500':
+          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/collections/byOwner:
     description: collections_by_owner
@@ -418,18 +407,16 @@ paths:
           schema:
             type: string
       responses:
-        "500":
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NftCollections'
+        '400':
+          $ref: "#/components/responses/BadRequest"
+        '500':
+          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/collections/all:
     description: collections_all
@@ -452,18 +439,16 @@ paths:
           schema:
             type: string
       responses:
-        "500":
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NftCollections'
+        '400':
+          $ref: "#/components/responses/BadRequest"
+        '500':
+          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/orders:
     description: Create or update an order
@@ -479,18 +464,20 @@ paths:
             schema:
               $ref: '#/components/schemas/OrderForm'
       responses:
-        "500":
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Order'
+        '400':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TezosOrderDataApiError'
+        '500':
+          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/orders/all:
     description: Get all orders
@@ -518,18 +505,16 @@ paths:
           schema:
             type: string
       responses:
-        "500":
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/OrderPagination'
+        '400':
+          $ref: "#/components/responses/BadRequest"
+        '500':
+          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/orders/{hash}:
     description: Get order by hash
@@ -545,18 +530,45 @@ paths:
           schema:
             type: string
       responses:
-        "500":
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Order'
+        '404':
+          $ref: "#/components/responses/EntityNotFound"
+        '400':
+          $ref: "#/components/responses/BadRequest"
+        '500':
+          $ref: "#/components/responses/ServerError"
+      security: [ ]
+  /v0.1/orders/byIds:
+    description: Get order by ids
+    get:
+      tags:
+        - order-controller
+      description: Get order by ids
+      operationId: getOrderByIds
+      parameters: [ ]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderIds'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Order'
+        '400':
+          $ref: "#/components/responses/BadRequest"
+        '500':
+          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/orders/sell/byMaker:
     description: Get sell order by maker
@@ -589,18 +601,16 @@ paths:
           schema:
             type: string
       responses:
-        "500":
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/OrderPagination'
+        '400':
+          $ref: "#/components/responses/BadRequest"
+        '500':
+          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/orders/sell/byItem:
     description: Get sell order by item
@@ -630,6 +640,34 @@ paths:
           required: false
           schema:
             $ref: '#/components/schemas/Address'
+        - name: currencyId
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: status
+          in: query
+          required: false
+          schema:
+            type: "array"
+            items:
+              $ref: "#/components/schemas/OrderStatus"
+        - name: startDate
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int64
+            minimum: 0
+            maximum: 9007199254740992
+        - name: endDate
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int64
+            minimum: 0
+            maximum: 9007199254740992
         - name: size
           in: query
           required: false
@@ -643,18 +681,16 @@ paths:
           schema:
             type: string
       responses:
-        "500":
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/OrderPagination'
+        '400':
+          $ref: "#/components/responses/BadRequest"
+        '500':
+          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/orders/sell/byCollection:
     description: Get sell orders by collection
@@ -687,18 +723,16 @@ paths:
           schema:
             type: string
       responses:
-        "500":
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/OrderPagination'
+        '400':
+          $ref: "#/components/responses/BadRequest"
+        '500':
+          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/orders/sell:
     description: Get sell orders
@@ -726,18 +760,16 @@ paths:
           schema:
             type: string
       responses:
-        "500":
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/OrderPagination'
+        '400':
+          $ref: "#/components/responses/BadRequest"
+        '500':
+          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/orders/bids/byMaker:
     description: Get order bids by maker
@@ -770,18 +802,16 @@ paths:
           schema:
             type: string
       responses:
-        "500":
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/OrderPagination'
+        '400':
+          $ref: "#/components/responses/BadRequest"
+        '500':
+          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/orders/bids/byItem:
     description: Get order bids by item
@@ -811,6 +841,34 @@ paths:
           required: false
           schema:
             $ref: '#/components/schemas/Address'
+        - name: currencyId
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: status
+          in: query
+          required: false
+          schema:
+            type: "array"
+            items:
+              $ref: "#/components/schemas/OrderStatus"
+        - name: startDate
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int64
+            minimum: 0
+            maximum: 9007199254740992
+        - name: endDate
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int64
+            minimum: 0
+            maximum: 9007199254740992
         - name: size
           in: query
           required: false
@@ -824,18 +882,76 @@ paths:
           schema:
             type: string
       responses:
-        "500":
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/OrderPagination'
+        '400':
+          $ref: "#/components/responses/BadRequest"
+        '500':
+          $ref: "#/components/responses/ServerError"
+      security: [ ]
+  /v0.1/order/orders/currencies/byBidOrdersOfItem:
+    description: Returns currencies made as payment in all bid orders of the item
+    get:
+      tags:
+        - order-controller
+      description: Returns currencies made as payment in all bid orders of the item
+      operationId: getCurrenciesByBidOrdersOfItem
+      parameters:
+        - name: contract
+          in: query
+          required: false
+          schema:
+            $ref: '#/components/schemas/Address'
+        - name: tokenId
+          in: query
+          required: false
+          schema:
+            $ref: '#/components/schemas/BigInteger'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderCurrencies'
+        '400':
+          $ref: "#/components/responses/BadRequest"
+        '500':
+          $ref: "#/components/responses/ServerError"
+      security: [ ]
+  /v0.1/order/orders/currencies/bySellOrdersOfItem:
+    description: Returns currencies taken as payment in all sell orders of the item
+    get:
+      tags:
+        - order-controller
+      description: Returns currencies taken as payment in all sell orders of the item
+      operationId: getCurrenciesBySellOrdersOfItem
+      parameters:
+        - name: contract
+          in: query
+          required: false
+          schema:
+            $ref: '#/components/schemas/Address'
+        - name: tokenId
+          in: query
+          required: false
+          schema:
+            $ref: '#/components/schemas/BigInteger'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderCurrencies'
+        '400':
+          $ref: "#/components/responses/BadRequest"
+        '500':
+          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/order/activities/search:
     description: get Order activities with some filter
@@ -845,6 +961,11 @@ paths:
       description: get Order activities with some filter
       operationId: getOrderActivities
       parameters:
+        - name: sort
+          in: query
+          required: false
+          schema:
+            $ref: '#/components/schemas/ActivitySort'
         - name: size
           in: query
           required: false
@@ -863,18 +984,16 @@ paths:
             schema:
               $ref: '#/components/schemas/OrderActivityFilter'
       responses:
-        "500":
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/OrderActivities'
+        '400':
+          $ref: "#/components/responses/BadRequest"
+        '500':
+          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/order/signature/validate:
     description: Validate a message
@@ -890,21 +1009,143 @@ paths:
             schema:
               $ref: '#/components/schemas/SignatureValidationForm'
       responses:
-        "500":
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error500'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 type: boolean
+        '400':
+          $ref: "#/components/responses/BadRequest"
+        '500':
+          $ref: "#/components/responses/ServerError"
+      security: [ ]
+  /v0.1/balances/{contract}/{owner}:
+    summary: ft_balance
+    get:
+      tags:
+        - ft-balance-controller
+      summary: ft_balance
+      operationId: ft_balance
+      parameters:
+        - name: contract
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: owner
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FTBalance'
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TezosApiErrorBalanceNotFound'
+        '400':
+          $ref: "#/components/responses/BadRequest"
+        '500':
+          $ref: "#/components/responses/ServerError"
+      security: [ ]
+  /kafka/item:
+    summary: kafka_item
+    get:
+      tags:
+        - kafka-controller
+      summary: kafka_item
+      operationId: kafka_item
+      parameters: [ ]
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NftItemEvent'
+      security: [ ]
+  /kafka/order:
+    summary: kafka_order
+    get:
+      tags:
+        - kafka-controller
+      summary: kafka_order
+      operationId: kafka_order
+      parameters: [ ]
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderEvent'
+      security: [ ]
+  /kafka/ownership:
+    summary: kafka_ownership
+    get:
+      tags:
+        - kafka-controller
+      summary: kafka_ownership
+      operationId: kafka_ownership
+      parameters: [ ]
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NftOwnershipEvent'
+      security: [ ]
+  /kafka/activity:
+    summary: kafka_activity
+    get:
+      tags:
+        - kafka-controller
+      summary: kafka_activity
+      operationId: kafka_activity
+      parameters: [ ]
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActivityType'
       security: [ ]
 components:
   schemas:
+    ActivitySort:
+      type: string
+      enum:
+        - LATEST_FIRST
+        - EARLIEST_FIRST
+    ActivityType:
+      type: object
+      properties:
+        id:
+          type: string
+        date:
+          type: string
+          format: date-time
+        source:
+          type: string
+      required:
+        - type
+        - source
+        - date
+        - id
+      oneOf:
+        - $ref: '#/components/schemas/OrderActivityType'
+        - $ref: '#/components/schemas/NftActivityType'
+      additionalProperties: false
     Address:
       type: string
     Asset:
@@ -921,8 +1162,9 @@ components:
     AssetType:
       oneOf:
         - $ref: '#/components/schemas/XTZAssetType'
-        - $ref: '#/components/schemas/FA_1_2AssetType'
-        - $ref: '#/components/schemas/FA_2AssetType'
+        - $ref: '#/components/schemas/FTAssetType'
+        - $ref: '#/components/schemas/NFTAssetType'
+        - $ref: '#/components/schemas/MTAssetType'
     BigDecimal:
       type: string
     BigInteger:
@@ -952,12 +1194,9 @@ components:
           $ref: '#/components/schemas/Word'
         blockNumber:
           $ref: '#/components/schemas/BlockNumber'
-        logIndex:
-          type: integer
       required:
         - blockNumber
         - blockHash
-        - logIndex
         - transactionHash
         - value
         - tokenId
@@ -965,60 +1204,44 @@ components:
         - owner
         - '@type'
       additionalProperties: false
-    Error500:
-      type: object
-      properties:
-        status:
-          type: integer
-          minimum: -1073741824
-          maximum: 1073741823
-        message:
-          type: string
-        code:
-          type: string
-          enum:
-            - UNKNOWN
-            - VALIDATION
-            - FIRST_TEMPLATE_OBJECT_NOT_FOUND
-            - SECOND_TEMPLATE_OBJECT_NOT_FOUND
-            - BAD_REQUEST
-            - TOKEN_PROPERTIES_EXTRACT
-            - INCORRECT_LAZY_NFT
-            - INVALID_ARGUMENT
-            - ABSENCE_OF_REQUIRED_FIELD
-            - UNLOCKABLE_API_ERROR
-            - NFT_API_ERROR
-            - ORDER_API_ERROR
-            - UNEXPECTED_API_ERROR
-      required:
-        - code
-        - message
-        - status
-      additionalProperties: false
     Edpk:
       type: string
     Edsig:
       type: string
-    FA_1_2AssetType:
+    FTAssetType:
       type: object
       properties:
         assetClass:
           type: string
           enum:
-            - FA_1_2
+            - FT
         contract:
           $ref: '#/components/schemas/Address'
       required:
         - contract
         - assetClass
       additionalProperties: false
-    FA_2AssetType:
+    FTBalance:
+      type: object
+      properties:
+        contract:
+          type: string
+        owner:
+          $ref: '#/components/schemas/Address'
+        balance:
+          $ref: '#/components/schemas/BigDecimal'
+      required:
+        - balance
+        - owner
+        - contract
+      additionalProperties: false
+    MTAssetType:
       type: object
       properties:
         assetClass:
           type: string
           enum:
-            - FA_2
+            - MT
         contract:
           $ref: '#/components/schemas/Address'
         tokenId:
@@ -1027,68 +1250,6 @@ components:
         - tokenId
         - contract
         - assetClass
-      additionalProperties: false
-    INVALID_ARGUMENT:
-      type: object
-      properties:
-        code:
-          type: string
-          enum:
-            - INVALID_ARGUMENT
-        message:
-          type: string
-      required:
-        - message
-        - code
-      additionalProperties: false
-    ItemHistory:
-      oneOf:
-        - $ref: '#/components/schemas/ItemRoyalty'
-        - $ref: '#/components/schemas/ItemTransfer'
-    ItemRoyalty:
-      type: object
-      properties:
-        type:
-          type: string
-          enum:
-            - ROYALTY
-        royalties:
-          type: array
-          items:
-            $ref: '#/components/schemas/Part'
-      required:
-        - royalties
-        - type
-      additionalProperties: false
-    ItemTransfer:
-      type: object
-      properties:
-        type:
-          type: string
-          enum:
-            - TRANSFER
-        owner:
-          $ref: '#/components/schemas/Address'
-        value:
-          $ref: '#/components/schemas/Address'
-        from:
-          $ref: '#/components/schemas/Address'
-      required:
-        - from
-        - type
-      additionalProperties: false
-    ItemTransferElt:
-      type: object
-      properties:
-        type:
-          type: string
-          enum:
-            - TRANSFER
-        from:
-          $ref: '#/components/schemas/Address'
-      required:
-        - from
-        - type
       additionalProperties: false
     Mint:
       type: object
@@ -1111,18 +1272,31 @@ components:
           $ref: '#/components/schemas/Word'
         blockNumber:
           $ref: '#/components/schemas/BlockNumber'
-        logIndex:
-          type: integer
       required:
         - blockNumber
         - blockHash
-        - logIndex
         - transactionHash
         - value
         - tokenId
         - contract
         - owner
         - '@type'
+      additionalProperties: false
+    NFTAssetType:
+      type: object
+      properties:
+        assetClass:
+          type: string
+          enum:
+            - NFT
+        contract:
+          $ref: '#/components/schemas/Address'
+        tokenId:
+          $ref: '#/components/schemas/BigInteger'
+      required:
+        - tokenId
+        - contract
+        - assetClass
       additionalProperties: false
     NftActivities:
       type: object
@@ -1153,12 +1327,9 @@ components:
           $ref: '#/components/schemas/Word'
         blockNumber:
           $ref: '#/components/schemas/BlockNumber'
-        logIndex:
-          type: integer
       required:
         - blockNumber
         - blockHash
-        - logIndex
         - transactionHash
         - value
         - tokenId
@@ -1305,7 +1476,8 @@ components:
     NftCollectionType:
       type: string
       enum:
-        - FA_2
+        - NFT
+        - MT
     NftCollections:
       type: object
       properties:
@@ -1354,15 +1526,12 @@ components:
         mintedAt:
           type: string
           format: date-time
-        pending:
-          type: array
-          items:
-            $ref: '#/components/schemas/ItemTransferElt'
         deleted:
           type: boolean
         meta:
           $ref: '#/components/schemas/NftItemMeta'
       required:
+        - deleted
         - mintedAt
         - date
         - royalties
@@ -1387,6 +1556,26 @@ components:
           type: string
       required:
         - key
+      additionalProperties: false
+    NftItemEvent:
+      type: object
+      properties:
+        eventId:
+          type: string
+        itemId:
+          type: string
+        type:
+          type: string
+          enum:
+            - UPDATE
+            - DELETE
+        item:
+          $ref: '#/components/schemas/NftItem'
+      required:
+        - item
+        - type
+        - itemId
+        - eventId
       additionalProperties: false
     NftItemMeta:
       type: object
@@ -1445,12 +1634,11 @@ components:
         date:
           type: string
           format: date-time
-        pending:
-          type: array
-          items:
-            $ref: '#/components/schemas/ItemHistory'
+        createdAt:
+          type: string
+          format: date-time
       required:
-        - pending
+        - createdAt
         - date
         - lazyValue
         - value
@@ -1459,6 +1647,26 @@ components:
         - tokenId
         - contract
         - id
+      additionalProperties: false
+    NftOwnershipEvent:
+      type: object
+      properties:
+        eventId:
+          type: string
+        ownershipId:
+          type: string
+        type:
+          type: string
+          enum:
+            - UPDATE
+            - DELETE
+        ownership:
+          $ref: '#/components/schemas/NftOwnership'
+      required:
+        - ownership
+        - type
+        - ownershipId
+        - eventId
       additionalProperties: false
     NftOwnerships:
       type: object
@@ -1542,10 +1750,6 @@ components:
         lastUpdateAt:
           type: string
           format: date-time
-        pending:
-          type: array
-          items:
-            $ref: '#/components/schemas/OrderExchangeHistory'
         hash:
           $ref: '#/components/schemas/Word'
         makeBalance:
@@ -1575,6 +1779,7 @@ components:
         - makerEdpk
         - maker
         - data
+        - status
       additionalProperties: false
     OrderActivities:
       type: object
@@ -1867,33 +2072,38 @@ components:
         - $ref: '#/components/schemas/OrderActivityBid'
         - $ref: '#/components/schemas/OrderActivityCancelBid'
         - $ref: '#/components/schemas/OrderActivityCancelList'
-    OrderCancel:
+    OrderCurrencies:
       type: object
       properties:
+        order_type:
+          $ref: '#/components/schemas/OrderType'
+        currencies:
+          type: array
+          items:
+            $ref: '#/components/schemas/AssetType'
+      required:
+        - currencies
+        - order_type
+      additionalProperties: false
+    OrderEvent:
+      type: object
+      properties:
+        eventId:
+          type: string
+        orderId:
+          type: string
         type:
           type: string
           enum:
-            - CANCEL
-        hash:
-          $ref: '#/components/schemas/Word'
-        make:
-          $ref: '#/components/schemas/Asset'
-        take:
-          $ref: '#/components/schemas/Asset'
-        date:
-          type: string
-          format: date-time
-        maker:
-          $ref: '#/components/schemas/Address'
+            - UPDATE
+        order:
+          $ref: '#/components/schemas/Order'
       required:
-        - date
-        - hash
+        - order
         - type
+        - orderId
+        - eventId
       additionalProperties: false
-    OrderExchangeHistory:
-      oneOf:
-        - $ref: '#/components/schemas/OrderCancel'
-        - $ref: '#/components/schemas/OrderSideMatch'
     OrderForm:
       type: object
       properties:
@@ -1944,7 +2154,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Order'
-        contination:
+        continuation:
           type: string
       required:
         - orders
@@ -1982,51 +2192,19 @@ components:
         - payouts
         - dataType
       additionalProperties: false
-    OrderSide:
-      type: string
-      enum:
-        - LEFT
-        - RIGHT
-    OrderSideMatch:
-      type: object
-      properties:
-        type:
-          type: string
-          enum:
-            - ORDER_SIDE_MATCH
-        hash:
-          $ref: '#/components/schemas/Word'
-        make:
-          $ref: '#/components/schemas/Asset'
-        take:
-          $ref: '#/components/schemas/Asset'
-        date:
-          type: string
-          format: date-time
-        maker:
-          $ref: '#/components/schemas/Address'
-        side:
-          $ref: '#/components/schemas/OrderSide'
-        fill:
-          $ref: '#/components/schemas/BigInteger'
-        taker:
-          $ref: '#/components/schemas/Address'
-        counterHash:
-          $ref: '#/components/schemas/Word'
-      required:
-        - fill
-        - date
-        - hash
-        - type
-      additionalProperties: false
     OrderStatus:
       type: string
       enum:
-        - OACTIVE
-        - OFILLED
-        - OHISTORICAL
+        - ACTIVE
+        - FILLED
+        - HISTORICAL
         - INACTIVE
         - CANCELLED
+    OrderType:
+      type: string
+      enum:
+        - SELL
+        - BID
     Part:
       type: object
       properties:
@@ -2070,48 +2248,6 @@ components:
         - elt
         - '@type'
       additionalProperties: false
-    ActivityType:
-      properties:
-        id:
-          type: string
-        date:
-          type: string
-          format: date-time
-        source:
-          type: string
-      required:
-        - id
-        - date
-        - source
-      oneOf:
-        - $ref: '#/components/schemas/NftActivityType'
-        - $ref: '#/components/schemas/OrderActivityType'
-    UNEXPECTED_API_ERROR:
-      type: object
-      properties:
-        code:
-          type: string
-          enum:
-            - UNEXPECTED_API_ERROR
-        message:
-          type: string
-      required:
-        - message
-        - code
-      additionalProperties: false
-    VALIDATION:
-      type: object
-      properties:
-        code:
-          type: string
-          enum:
-            - VALIDATION
-        message:
-          type: string
-      required:
-        - message
-        - code
-      additionalProperties: false
     Word:
       type: string
     XTZAssetType:
@@ -2124,4 +2260,114 @@ components:
       required:
         - assetClass
       additionalProperties: false
+
+    OrderIds:
+      type: object
+      required:
+        - ids
+      properties:
+        ids:
+          type: array
+          description: "List of the orders IDs"
+          items:
+            type: string
+
+    TezosOrderDataApiError:
+      required:
+        - code
+        - message
+      type: object
+      properties:
+        code:
+          type: string
+          enum:
+            - ORDER_INVALID_UPDATE
+            - ORDER_CANCELED
+            - INCORRECT_SIGNATURE
+        message:
+          type: string
+          description: "Error message"
+
+    TezosApiErrorBalanceNotFound:
+      required:
+        - code
+        - message
+      type: object
+      properties:
+        code:
+          type: string
+          enum:
+            - TOKEN_NOT_FOUND
+            - BALANCE_NOT_FOUND
+        message:
+          type: string
+          description: "Error message"
+
+    TezosApiErrorEntityNotFound:
+      required:
+        - code
+        - message
+      type: object
+      properties:
+        code:
+          type: string
+          enum:
+            - NOT_FOUND
+          default: NOT_FOUND
+        message:
+          type: string
+          description: "Error message"
+
+    TezosApiErrorBadRequest:
+      required:
+        - code
+        - message
+      type: object
+      properties:
+        code:
+          type: string
+          enum:
+            - BAD_REQUEST
+            - INVALID_ARGUMENT
+            - VALIDATION
+          default: INVALID_ARGUMENT
+        message:
+          type: string
+          description: "Error message"
+
+    TezosApiErrorServerError:
+      required:
+        - code
+        - message
+      type: object
+      properties:
+        code:
+          type: string
+          enum:
+            - UNEXPECTED_API_ERROR
+          default: UNEXPECTED_API_ERROR
+        message:
+          type: string
+          description: "Error message"
+
   securitySchemes: { }
+
+  responses:
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            "$ref": "#/components/schemas/TezosApiErrorBadRequest"
+    ServerError:
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            "$ref": "#/components/schemas/TezosApiErrorServerError"
+    EntityNotFound:
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            "$ref": "#/components/schemas/TezosApiErrorEntityNotFound"

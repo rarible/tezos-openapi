@@ -1,11 +1,11 @@
 package com.rarible.protocol.tezos.subscriber
 
 import com.rarible.core.kafka.RaribleKafkaConsumer
-import com.rarible.protocol.tezos.dto.ActivityDto
-import com.rarible.protocol.tezos.dto.ItemEventDto
-import com.rarible.protocol.tezos.dto.OrderEventDto
-import com.rarible.protocol.tezos.dto.OwnershipEventDto
+import com.rarible.protocol.tezos.dto.TezosActivitySafeDto
 import com.rarible.protocol.tezos.dto.TezosEventTopicProvider
+import com.rarible.protocol.tezos.dto.TezosItemSafeEventDto
+import com.rarible.protocol.tezos.dto.TezosOrderSafeEventDto
+import com.rarible.protocol.tezos.dto.TezosOwnershipSafeEventDto
 import java.util.*
 
 class TezosEventsConsumerFactory(
@@ -24,11 +24,11 @@ class TezosEventsConsumerFactory(
                 "username=\"$username\" password=\"$password\";"
     ) else emptyMap()
 
-    fun createItemConsumer(consumerGroup: String): RaribleKafkaConsumer<ItemEventDto> {
+    fun createItemConsumer(consumerGroup: String): RaribleKafkaConsumer<TezosItemSafeEventDto> {
         return RaribleKafkaConsumer(
             clientId = "$clientIdPrefix.tezos-item-consumer",
             valueDeserializerClass = SafeJsonDeserializer.ItemJsonSerializer::class.java,
-            valueClass = ItemEventDto::class.java,
+            valueClass = TezosItemSafeEventDto::class.java,
             consumerGroup = consumerGroup,
             defaultTopic = TezosEventTopicProvider.ITEM,
             bootstrapServers = brokerReplicaSet,
@@ -36,11 +36,11 @@ class TezosEventsConsumerFactory(
         )
     }
 
-    fun createOwnershipConsumer(consumerGroup: String): RaribleKafkaConsumer<OwnershipEventDto> {
+    fun createOwnershipConsumer(consumerGroup: String): RaribleKafkaConsumer<TezosOwnershipSafeEventDto> {
         return RaribleKafkaConsumer(
             clientId = "$clientIdPrefix.tezos-ownership-consumer",
             valueDeserializerClass = SafeJsonDeserializer.OwnershipJsonSerializer::class.java,
-            valueClass = OwnershipEventDto::class.java,
+            valueClass = TezosOwnershipSafeEventDto::class.java,
             consumerGroup = consumerGroup,
             defaultTopic = TezosEventTopicProvider.OWNERSHIP,
             bootstrapServers = brokerReplicaSet,
@@ -48,11 +48,11 @@ class TezosEventsConsumerFactory(
         )
     }
 
-    fun createOrderConsumer(consumerGroup: String): RaribleKafkaConsumer<OrderEventDto> {
+    fun createOrderConsumer(consumerGroup: String): RaribleKafkaConsumer<TezosOrderSafeEventDto> {
         return RaribleKafkaConsumer(
             clientId = "$clientIdPrefix.tezos-order-consumer",
             valueDeserializerClass = SafeJsonDeserializer.OrderJsonSerializer::class.java,
-            valueClass = OrderEventDto::class.java,
+            valueClass = TezosOrderSafeEventDto::class.java,
             consumerGroup = consumerGroup,
             defaultTopic = TezosEventTopicProvider.ORDER,
             bootstrapServers = brokerReplicaSet,
@@ -60,11 +60,11 @@ class TezosEventsConsumerFactory(
         )
     }
 
-    fun createActivityConsumer(consumerGroup: String): RaribleKafkaConsumer<ActivityDto> {
+    fun createActivityConsumer(consumerGroup: String): RaribleKafkaConsumer<TezosActivitySafeDto> {
         return RaribleKafkaConsumer(
             clientId = "$clientIdPrefix.tezos-activity-consumer",
             valueDeserializerClass = SafeJsonDeserializer.ActivityJsonSerializer::class.java,
-            valueClass = ActivityDto::class.java,
+            valueClass = TezosActivitySafeDto::class.java,
             consumerGroup = consumerGroup,
             defaultTopic = TezosEventTopicProvider.ACTIVITY,
             bootstrapServers = brokerReplicaSet,

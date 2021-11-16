@@ -2,7 +2,7 @@ package com.rarible.protocol.tezos.dto
 
 import java.time.Instant
 
-data class ActivityDto(
+data class TezosActivitySafeDto(
     val id: String?,
     val date: Instant?,
     val source: String?,

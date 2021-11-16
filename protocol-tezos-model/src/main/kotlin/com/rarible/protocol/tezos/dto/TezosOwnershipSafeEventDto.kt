@@ -1,14 +1,15 @@
 package com.rarible.protocol.tezos.dto
 
-class OrderEventDto(
+class TezosOwnershipSafeEventDto(
     val type: Type,
     val eventId: String?,
-    val orderId: String?,
-    val order: OrderDto?
+    val ownershipId: String?,
+    val ownership: NftOwnershipDto?
 ) {
 
     enum class Type {
         UPDATE,
+        DELETE,
         SERIALIZATION_FAILED
     }
 

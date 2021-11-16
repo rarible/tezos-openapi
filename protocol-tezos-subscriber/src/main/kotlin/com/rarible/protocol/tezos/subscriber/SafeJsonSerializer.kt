@@ -1,10 +1,10 @@
 package com.rarible.protocol.tezos.subscriber
 
 import com.rarible.core.kafka.json.JsonDeserializer
-import com.rarible.protocol.tezos.dto.ActivityDto
-import com.rarible.protocol.tezos.dto.ItemEventDto
-import com.rarible.protocol.tezos.dto.OrderEventDto
-import com.rarible.protocol.tezos.dto.OwnershipEventDto
+import com.rarible.protocol.tezos.dto.TezosActivitySafeDto
+import com.rarible.protocol.tezos.dto.TezosItemSafeEventDto
+import com.rarible.protocol.tezos.dto.TezosOrderSafeEventDto
+import com.rarible.protocol.tezos.dto.TezosOwnershipSafeEventDto
 import org.apache.kafka.common.header.Headers
 import org.slf4j.LoggerFactory
 
@@ -26,19 +26,22 @@ sealed class SafeJsonDeserializer : JsonDeserializer() {
     }
 
     class ItemJsonSerializer : SafeJsonDeserializer() {
-        override val errorValue = ItemEventDto(ItemEventDto.Type.SERIALIZATION_FAILED, null, null, null)
+        override val errorValue =
+            TezosItemSafeEventDto(TezosItemSafeEventDto.Type.SERIALIZATION_FAILED, null, null, null)
     }
 
     class OwnershipJsonSerializer : SafeJsonDeserializer() {
-        override val errorValue = OwnershipEventDto(OwnershipEventDto.Type.SERIALIZATION_FAILED, null, null, null)
+        override val errorValue =
+            TezosOwnershipSafeEventDto(TezosOwnershipSafeEventDto.Type.SERIALIZATION_FAILED, null, null, null)
     }
 
     class OrderJsonSerializer : SafeJsonDeserializer() {
-        override val errorValue = OrderEventDto(OrderEventDto.Type.SERIALIZATION_FAILED, null, null, null)
+        override val errorValue =
+            TezosOrderSafeEventDto(TezosOrderSafeEventDto.Type.SERIALIZATION_FAILED, null, null, null)
     }
 
     class ActivityJsonSerializer : SafeJsonDeserializer() {
-        override val errorValue = ActivityDto(null, null, null, null)
+        override val errorValue = TezosActivitySafeDto(null, null, null, null)
     }
 
 }
