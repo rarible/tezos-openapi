@@ -34,16 +34,24 @@ paths:
             schema:
               $ref: '#/components/schemas/NftActivityFilter'
       responses:
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerError'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NftActivities'
-        '400':
-          $ref: "#/components/responses/BadRequest"
-        '500':
-          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/ownerships/{ownershipId}:
     description: Get NFT ownerships by id
@@ -59,18 +67,30 @@ paths:
           schema:
             type: string
       responses:
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerError'
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityNotFound'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NftOwnership'
-        '404':
-          $ref: "#/components/responses/EntityNotFound"
-        '400':
-          $ref: "#/components/responses/BadRequest"
-        '500':
-          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/ownerships/byItem:
     description: Get NFT ownerships by item
@@ -103,16 +123,24 @@ paths:
           schema:
             type: string
       responses:
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerError'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NftOwnerships'
-        '400':
-          $ref: "#/components/responses/BadRequest"
-        '500':
-          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/ownerships/all:
     description: Get NFT all ownerships
@@ -135,16 +163,24 @@ paths:
           schema:
             type: string
       responses:
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerError'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NftOwnerships'
-        '400':
-          $ref: "#/components/responses/BadRequest"
-        '500':
-          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/items/{itemId}/meta:
     description: Get NFT item by meta id
@@ -160,18 +196,24 @@ paths:
           schema:
             type: string
       responses:
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerError'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NftItemMeta'
-        '404':
-          $ref: "#/components/responses/EntityNotFound"
-        '400':
-          $ref: "#/components/responses/BadRequest"
-        '500':
-          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/items/{itemId}:
     description: Get NFT item by id
@@ -192,18 +234,30 @@ paths:
           schema:
             type: string
       responses:
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerError'
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityNotFound'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NftItem'
-        '404':
-          $ref: "#/components/responses/EntityNotFound"
-        '400':
-          $ref: "#/components/responses/BadRequest"
-        '500':
-          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/items/byOwner:
     description: Get NFT items by owner
@@ -236,16 +290,24 @@ paths:
           schema:
             type: string
       responses:
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerError'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NftItems'
-        '400':
-          $ref: "#/components/responses/BadRequest"
-        '500':
-          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/items/byCreator:
     description: Get NFT items by creator
@@ -278,16 +340,24 @@ paths:
           schema:
             type: string
       responses:
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerError'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NftItems'
-        '400':
-          $ref: "#/components/responses/BadRequest"
-        '500':
-          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/items/byCollection:
     description: items_by_collection
@@ -320,16 +390,24 @@ paths:
           schema:
             type: string
       responses:
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerError'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NftItems'
-        '400':
-          $ref: "#/components/responses/BadRequest"
-        '500':
-          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/collections/{collection}/generate_token_id:
     description: collections_generate_id
@@ -345,16 +423,24 @@ paths:
           schema:
             type: string
       responses:
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerError'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NftTokenId'
-        '400':
-          $ref: "#/components/responses/BadRequest"
-        '500':
-          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/collections/{collection}:
     description: collections_by_id
@@ -370,16 +456,30 @@ paths:
           schema:
             type: string
       responses:
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerError'
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityNotFound'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NftCollection'
-        '400':
-          $ref: "#/components/responses/BadRequest"
-        '500':
-          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/collections/byOwner:
     description: collections_by_owner
@@ -407,16 +507,24 @@ paths:
           schema:
             type: string
       responses:
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerError'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NftCollections'
-        '400':
-          $ref: "#/components/responses/BadRequest"
-        '500':
-          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/collections/all:
     description: collections_all
@@ -439,16 +547,24 @@ paths:
           schema:
             type: string
       responses:
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerError'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NftCollections'
-        '400':
-          $ref: "#/components/responses/BadRequest"
-        '500':
-          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/orders:
     description: Create or update an order
@@ -464,20 +580,24 @@ paths:
             schema:
               $ref: '#/components/schemas/OrderForm'
       responses:
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerError'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderError'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Order'
-        '400':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/TezosOrderDataApiError'
-        '500':
-          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/orders/all:
     description: Get all orders
@@ -505,16 +625,24 @@ paths:
           schema:
             type: string
       responses:
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerError'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/OrderPagination'
-        '400':
-          $ref: "#/components/responses/BadRequest"
-        '500':
-          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/orders/{hash}:
     description: Get order by hash
@@ -530,18 +658,30 @@ paths:
           schema:
             type: string
       responses:
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerError'
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityNotFound'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Order'
-        '404':
-          $ref: "#/components/responses/EntityNotFound"
-        '400':
-          $ref: "#/components/responses/BadRequest"
-        '500':
-          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/orders/byIds:
     description: Get order by ids
@@ -557,6 +697,18 @@ paths:
             schema:
               $ref: '#/components/schemas/OrderIds'
       responses:
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerError'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
         "200":
           description: OK
           content:
@@ -565,10 +717,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Order'
-        '400':
-          $ref: "#/components/responses/BadRequest"
-        '500':
-          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/orders/sell/byMaker:
     description: Get sell order by maker
@@ -601,16 +749,24 @@ paths:
           schema:
             type: string
       responses:
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerError'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/OrderPagination'
-        '400':
-          $ref: "#/components/responses/BadRequest"
-        '500':
-          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/orders/sell/byItem:
     description: Get sell order by item
@@ -649,9 +805,9 @@ paths:
           in: query
           required: false
           schema:
-            type: "array"
+            type: array
             items:
-              $ref: "#/components/schemas/OrderStatus"
+              $ref: '#/components/schemas/OrderStatus'
         - name: startDate
           in: query
           required: true
@@ -681,16 +837,24 @@ paths:
           schema:
             type: string
       responses:
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerError'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/OrderPagination'
-        '400':
-          $ref: "#/components/responses/BadRequest"
-        '500':
-          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/orders/sell/byCollection:
     description: Get sell orders by collection
@@ -723,16 +887,24 @@ paths:
           schema:
             type: string
       responses:
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerError'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/OrderPagination'
-        '400':
-          $ref: "#/components/responses/BadRequest"
-        '500':
-          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/orders/sell:
     description: Get sell orders
@@ -760,16 +932,24 @@ paths:
           schema:
             type: string
       responses:
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerError'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/OrderPagination'
-        '400':
-          $ref: "#/components/responses/BadRequest"
-        '500':
-          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/orders/bids/byMaker:
     description: Get order bids by maker
@@ -802,16 +982,24 @@ paths:
           schema:
             type: string
       responses:
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerError'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/OrderPagination'
-        '400':
-          $ref: "#/components/responses/BadRequest"
-        '500':
-          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/orders/bids/byItem:
     description: Get order bids by item
@@ -850,9 +1038,9 @@ paths:
           in: query
           required: false
           schema:
-            type: "array"
+            type: array
             items:
-              $ref: "#/components/schemas/OrderStatus"
+              $ref: '#/components/schemas/OrderStatus'
         - name: startDate
           in: query
           required: true
@@ -882,16 +1070,24 @@ paths:
           schema:
             type: string
       responses:
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerError'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/OrderPagination'
-        '400':
-          $ref: "#/components/responses/BadRequest"
-        '500':
-          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/order/orders/currencies/byBidOrdersOfItem:
     description: Returns currencies made as payment in all bid orders of the item
@@ -912,16 +1108,24 @@ paths:
           schema:
             $ref: '#/components/schemas/BigInteger'
       responses:
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerError'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/OrderCurrencies'
-        '400':
-          $ref: "#/components/responses/BadRequest"
-        '500':
-          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/order/orders/currencies/bySellOrdersOfItem:
     description: Returns currencies taken as payment in all sell orders of the item
@@ -942,16 +1146,24 @@ paths:
           schema:
             $ref: '#/components/schemas/BigInteger'
       responses:
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerError'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/OrderCurrencies'
-        '400':
-          $ref: "#/components/responses/BadRequest"
-        '500':
-          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/order/activities/search:
     description: get Order activities with some filter
@@ -984,16 +1196,24 @@ paths:
             schema:
               $ref: '#/components/schemas/OrderActivityFilter'
       responses:
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerError'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/OrderActivities'
-        '400':
-          $ref: "#/components/responses/BadRequest"
-        '500':
-          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/order/signature/validate:
     description: Validate a message
@@ -1009,16 +1229,24 @@ paths:
             schema:
               $ref: '#/components/schemas/SignatureValidationForm'
       responses:
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerError'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 type: boolean
-        '400':
-          $ref: "#/components/responses/BadRequest"
-        '500':
-          $ref: "#/components/responses/ServerError"
       security: [ ]
   /v0.1/balances/{contract}/{owner}:
     summary: ft_balance
@@ -1039,22 +1267,24 @@ paths:
           schema:
             type: string
       responses:
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerError'
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityNotFound'
         "200":
           description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/FTBalance'
-        "404":
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/TezosApiErrorBalanceNotFound'
-        '400':
-          $ref: "#/components/responses/BadRequest"
-        '500':
-          $ref: "#/components/responses/ServerError"
       security: [ ]
   /kafka/item:
     summary: kafka_item
@@ -1165,6 +1395,20 @@ components:
         - $ref: '#/components/schemas/FTAssetType'
         - $ref: '#/components/schemas/NFTAssetType'
         - $ref: '#/components/schemas/MTAssetType'
+    BadRequest:
+      type: object
+      properties:
+        code:
+          type: string
+          enum:
+            - BAD_REQUEST
+            - VALIDATION
+        message:
+          type: string
+      required:
+        - message
+        - code
+      additionalProperties: false
     BigDecimal:
       type: string
     BigInteger:
@@ -1208,6 +1452,25 @@ components:
       type: string
     Edsig:
       type: string
+    EntityNotFound:
+      type: object
+      properties:
+        code:
+          type: string
+          enum:
+            - TOKEN_NOT_FOUND
+            - BALANCE_NOT_FOUND
+            - OWNERSHIP_NOT_FOUND
+            - ORDER_NOT_FOUND
+            - ITEM_NOT_FOUND
+            - COLLECTION_NOT_FOUND
+            - NOT_FOUND
+        message:
+          type: string
+      required:
+        - message
+        - code
+      additionalProperties: false
     FTAssetType:
       type: object
       properties:
@@ -1766,6 +2029,7 @@ components:
             - RARIBLE_V2
       required:
         - type
+        - status
         - hash
         - lastUpdateAt
         - createdAt
@@ -1779,7 +2043,6 @@ components:
         - makerEdpk
         - maker
         - data
-        - status
       additionalProperties: false
     OrderActivities:
       type: object
@@ -2085,6 +2348,21 @@ components:
         - currencies
         - order_type
       additionalProperties: false
+    OrderError:
+      type: object
+      properties:
+        code:
+          type: string
+          enum:
+            - ORDER_INVALID_UPDATE
+            - ORDER_CANCELED
+            - INCORRECT_SIGNATURE
+        message:
+          type: string
+      required:
+        - message
+        - code
+      additionalProperties: false
     OrderEvent:
       type: object
       properties:
@@ -2146,6 +2424,16 @@ components:
         - makerEdpk
         - maker
         - data
+      additionalProperties: false
+    OrderIds:
+      type: object
+      properties:
+        ids:
+          type: array
+          items:
+            type: string
+      required:
+        - ids
       additionalProperties: false
     OrderPagination:
       type: object
@@ -2218,6 +2506,19 @@ components:
         - value
         - account
       additionalProperties: false
+    ServerError:
+      type: object
+      properties:
+        code:
+          type: string
+          enum:
+            - UNEXPECTED_API_ERROR
+        message:
+          type: string
+      required:
+        - message
+        - code
+      additionalProperties: false
     SignatureValidationForm:
       type: object
       properties:
@@ -2260,114 +2561,4 @@ components:
       required:
         - assetClass
       additionalProperties: false
-
-    OrderIds:
-      type: object
-      required:
-        - ids
-      properties:
-        ids:
-          type: array
-          description: "List of the orders IDs"
-          items:
-            type: string
-
-    TezosOrderDataApiError:
-      required:
-        - code
-        - message
-      type: object
-      properties:
-        code:
-          type: string
-          enum:
-            - ORDER_INVALID_UPDATE
-            - ORDER_CANCELED
-            - INCORRECT_SIGNATURE
-        message:
-          type: string
-          description: "Error message"
-
-    TezosApiErrorBalanceNotFound:
-      required:
-        - code
-        - message
-      type: object
-      properties:
-        code:
-          type: string
-          enum:
-            - TOKEN_NOT_FOUND
-            - BALANCE_NOT_FOUND
-        message:
-          type: string
-          description: "Error message"
-
-    TezosApiErrorEntityNotFound:
-      required:
-        - code
-        - message
-      type: object
-      properties:
-        code:
-          type: string
-          enum:
-            - NOT_FOUND
-          default: NOT_FOUND
-        message:
-          type: string
-          description: "Error message"
-
-    TezosApiErrorBadRequest:
-      required:
-        - code
-        - message
-      type: object
-      properties:
-        code:
-          type: string
-          enum:
-            - BAD_REQUEST
-            - INVALID_ARGUMENT
-            - VALIDATION
-          default: INVALID_ARGUMENT
-        message:
-          type: string
-          description: "Error message"
-
-    TezosApiErrorServerError:
-      required:
-        - code
-        - message
-      type: object
-      properties:
-        code:
-          type: string
-          enum:
-            - UNEXPECTED_API_ERROR
-          default: UNEXPECTED_API_ERROR
-        message:
-          type: string
-          description: "Error message"
-
   securitySchemes: { }
-
-  responses:
-    BadRequest:
-      description: Bad Request
-      content:
-        application/json:
-          schema:
-            "$ref": "#/components/schemas/TezosApiErrorBadRequest"
-    ServerError:
-      description: Internal Server Error
-      content:
-        application/json:
-          schema:
-            "$ref": "#/components/schemas/TezosApiErrorServerError"
-    EntityNotFound:
-      description: Not Found
-      content:
-        application/json:
-          schema:
-            "$ref": "#/components/schemas/TezosApiErrorEntityNotFound"
