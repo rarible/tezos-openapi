@@ -2619,7 +2619,9 @@ components:
     SignatureValidationForm:
       type: object
       properties:
-        signer:
+        address:
+          $ref: '#/components/schemas/Address'
+        edpk:
           $ref: '#/components/schemas/Edpk'
         message:
           type: string
@@ -2628,7 +2630,8 @@ components:
       required:
         - signature
         - message
-        - signer
+        - edpk
+        - address
       additionalProperties: false
     Transfer:
       type: object
