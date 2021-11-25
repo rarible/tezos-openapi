@@ -1567,6 +1567,8 @@ components:
             - FT
         contract:
           $ref: '#/components/schemas/Address'
+        token_id:
+          $ref: '#/components/schemas/BigInteger'
       required:
         - contract
         - assetClass
@@ -2371,6 +2373,8 @@ components:
           $ref: '#/components/schemas/OrderActivitySideMatch'
         right:
           $ref: '#/components/schemas/OrderActivitySideMatch'
+        type:
+          $ref: '#/components/schemas/OrderActivityMatchType'
         price:
           $ref: '#/components/schemas/BigDecimal'
         transactionHash:
@@ -2389,10 +2393,16 @@ components:
         - blockHash
         - transactionHash
         - price
+        - type
         - right
         - left
         - '@type'
       additionalProperties: false
+    OrderActivityMatchType:
+      type: string
+      enum:
+        - SELL
+        - ACCEPT_BID
     OrderActivitySideMatch:
       type: object
       properties:
