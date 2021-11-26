@@ -43,7 +43,7 @@ class TezosEventsConsumerFactory(
             valueDeserializerClass = SafeJsonDeserializer.CollectionJsonSerializer::class.java,
             valueClass = TezosCollectionSafeEventDto::class.java,
             consumerGroup = consumerGroup,
-            defaultTopic = TezosEventTopicProvider.ITEM,
+            defaultTopic = TezosEventTopicProvider.COLLECTION,
             bootstrapServers = brokerReplicaSet,
             properties = properties
         )
