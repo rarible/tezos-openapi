@@ -2,6 +2,7 @@ package com.rarible.protocol.tezos.subscriber
 
 import com.rarible.core.kafka.RaribleKafkaConsumer
 import com.rarible.protocol.tezos.dto.TezosActivitySafeDto
+import com.rarible.protocol.tezos.dto.TezosCollectionSafeEventDto
 import com.rarible.protocol.tezos.dto.TezosEventTopicProvider
 import com.rarible.protocol.tezos.dto.TezosItemSafeEventDto
 import com.rarible.protocol.tezos.dto.TezosOrderSafeEventDto
@@ -29,6 +30,18 @@ class TezosEventsConsumerFactory(
             clientId = "$clientIdPrefix.tezos-item-consumer",
             valueDeserializerClass = SafeJsonDeserializer.ItemJsonSerializer::class.java,
             valueClass = TezosItemSafeEventDto::class.java,
+            consumerGroup = consumerGroup,
+            defaultTopic = TezosEventTopicProvider.ITEM,
+            bootstrapServers = brokerReplicaSet,
+            properties = properties
+        )
+    }
+
+    fun createCollectionConsumer(consumerGroup: String): RaribleKafkaConsumer<TezosCollectionSafeEventDto> {
+        return RaribleKafkaConsumer(
+            clientId = "$clientIdPrefix.tezos-collection-consumer",
+            valueDeserializerClass = SafeJsonDeserializer.CollectionJsonSerializer::class.java,
+            valueClass = TezosCollectionSafeEventDto::class.java,
             consumerGroup = consumerGroup,
             defaultTopic = TezosEventTopicProvider.ITEM,
             bootstrapServers = brokerReplicaSet,
