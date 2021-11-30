@@ -37,7 +37,10 @@ open class TezosApiClientFactory(
     }
 
     private fun createApiClient(): ApiClient {
-        return ApiClient(webClientCustomizer)
+        val jacksonMapper = ApiClient.createDefaultObjectMapper()
+            .registerModule(NumberJacksonModule)
+
+        return ApiClient(webClientCustomizer, jacksonMapper)
             .setBasePath(uriProvider.getUri().toASCIIString())
     }
 
