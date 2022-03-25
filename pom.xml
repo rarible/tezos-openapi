@@ -33,7 +33,7 @@
     </distributionManagement>
 
     <properties>
-        <revision>1.0.2</revision>
+        <revision>1.1.0</revision>
 
         <openapi.plugin.version>5.1.0</openapi.plugin.version>
         <rarible.codegen.server.version>1.2.0</rarible.codegen.server.version>
@@ -43,6 +43,9 @@
         <codegen.package>com.rarible.protocol.tezos.dto</codegen.package>
 
         <rarible-core.version>2.3.8</rarible-core.version>
+
+        <dir.target.classes>${project.basedir}/target/classes</dir.target.classes>
+        <dir.target.temp>${project.basedir}/target/temp</dir.target.temp>
     </properties>
 
     <dependencyManagement>
@@ -74,6 +77,11 @@
             <dependency>
                 <groupId>com.rarible.protocol.tezos</groupId>
                 <artifactId>protocol-tezos-subscriber</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.rarible.protocol.tezos</groupId>
+                <artifactId>protocol-tezos-indexer-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>
@@ -134,6 +142,8 @@
         <module>protocol-tezos-client</module>
         <module>protocol-tezos-client-starter</module>
         <module>protocol-tezos-subscriber</module>
+        <module>protocol-tezos-indexer-api</module>
+        <module>protocol-tezos-indexer-client</module>
     </modules>
 
 </project>

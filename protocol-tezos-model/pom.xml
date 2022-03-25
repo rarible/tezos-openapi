@@ -41,9 +41,6 @@
                 <groupId>com.rarible.codegen</groupId>
                 <artifactId>model-generator-maven-plugin</artifactId>
                 <configuration>
-                    <schema>
-                        <inputFile>${project.basedir}/../openapi.yaml</inputFile>
-                    </schema>
                     <generators>
                         <generator>
                             <lang>kotlin</lang>
