@@ -9,7 +9,7 @@
         <version>${revision}</version>
     </parent>
 
-    <artifactId>protocol-tezos-client</artifactId>
+    <artifactId>protocol-tezos-indexer-api</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>
@@ -22,27 +22,13 @@
         <!-- =============== Rarible-core ================ -->
         <dependency>
             <groupId>com.rarible.core</groupId>
-            <artifactId>rarible-core-client</artifactId>
+            <artifactId>rarible-core-logging</artifactId>
         </dependency>
 
         <!-- ================== Spring ==================== -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webflux</artifactId>
-        </dependency>
-
-        <!-- ================== Other ==================== -->
-        <dependency>
-            <groupId>com.fasterxml.jackson.module</groupId>
-            <artifactId>jackson-module-kotlin</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.datatype</groupId>
-            <artifactId>jackson-datatype-jsr310</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
         </dependency>
     </dependencies>
 
@@ -71,12 +57,12 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <generatorName>rarible-client</generatorName>
-                            <inputSpec>${project.basedir}/target/classes/openapi.yaml</inputSpec>
+                            <inputSpec>${dir.target.classes}/openapi.yaml</inputSpec>
+                            <apiPackage>com.rarible.protocol.tezos.indexer.api.controller</apiPackage>
+                            <generatorName>rarible-server</generatorName>
                             <generateModels>false</generateModels>
                             <generateApiTests>false</generateApiTests>
                             <generateApis>true</generateApis>
-                            <apiPackage>com.rarible.protocol.tezos.api.client</apiPackage>
                             <generateModelTests>false</generateModelTests>
                             <modelPackage>${codegen.package}</modelPackage>
                         </configuration>

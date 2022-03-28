@@ -4,9 +4,11 @@ import com.rarible.core.application.ApplicationEnvironmentInfo
 import com.rarible.protocol.tezos.api.client.CompositeWebClientCustomizer
 import com.rarible.protocol.tezos.api.client.DefaultTezosWebClientCustomizer
 import com.rarible.protocol.tezos.api.client.FixedTezosApiServiceUriProvider
+import com.rarible.protocol.tezos.api.client.FixedTezosIndexerServiceUriProvider
 import com.rarible.protocol.tezos.api.client.NoopWebClientCustomizer
 import com.rarible.protocol.tezos.api.client.TezosApiClientFactory
 import com.rarible.protocol.tezos.api.client.TezosApiServiceUriProvider
+import com.rarible.protocol.tezos.api.client.TezosIndexerServiceUriProvider
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
@@ -31,9 +33,15 @@ class TezosApiClientAutoConfiguration(
     }
 
     @Bean
+    @ConditionalOnMissingBean(TezosIndexerServiceUriProvider::class)
+    fun tezosIndexerServiceUriProvider(): TezosIndexerServiceUriProvider {
+        return FixedTezosIndexerServiceUriProvider(URI("https://localhost:8080/tezos/indexer/${applicationEnvironmentInfo.name}"))
+    }
+
+    @Bean
     @ConditionalOnMissingBean(TezosApiClientFactory::class)
-    fun tezosApiClientFactory(tezosApiServiceUriProvider: TezosApiServiceUriProvider): TezosApiClientFactory {
+    fun tezosApiClientFactory(tezosApiServiceUriProvider: TezosApiServiceUriProvider, tezosIndexerServiceUriProvider: TezosIndexerServiceUriProvider): TezosApiClientFactory {
         val customizer = CompositeWebClientCustomizer(listOf(DefaultTezosWebClientCustomizer(), webClientCustomizer))
-        return TezosApiClientFactory(tezosApiServiceUriProvider, customizer)
+        return TezosApiClientFactory(tezosApiServiceUriProvider, tezosIndexerServiceUriProvider, customizer)
     }
 }
