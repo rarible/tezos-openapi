@@ -37,10 +37,6 @@ open class TezosApiClientFactory(
         return OrderSignatureControllerApi(createApiClient())
     }
 
-    fun createDipdupOrderApiClient(): DipdupOrderControllerApi {
-        return DipdupOrderControllerApi(createIndexerApiClient())
-    }
-
     private fun createApiClient(): ApiClient {
         val jacksonMapper = ApiClient.createDefaultObjectMapper()
             .registerModule(NumberJacksonModule)
