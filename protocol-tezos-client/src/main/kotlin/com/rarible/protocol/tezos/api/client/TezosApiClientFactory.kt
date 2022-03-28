@@ -5,7 +5,6 @@ import org.springframework.boot.web.reactive.function.client.WebClientCustomizer
 
 open class TezosApiClientFactory(
     private val uriProvider: TezosApiServiceUriProvider,
-    private val uriIndexerProvider: TezosIndexerServiceUriProvider,
     private val webClientCustomizer: WebClientCustomizer = NoopWebClientCustomizer()
 ) {
 
@@ -44,14 +43,5 @@ open class TezosApiClientFactory(
         return ApiClient(webClientCustomizer, jacksonMapper)
             .setBasePath(uriProvider.getUri().toASCIIString())
     }
-
-    private fun createIndexerApiClient(): ApiClient {
-        val jacksonMapper = ApiClient.createDefaultObjectMapper()
-            .registerModule(NumberJacksonModule)
-
-        return ApiClient(webClientCustomizer, jacksonMapper)
-            .setBasePath(uriIndexerProvider.getUri().toASCIIString())
-    }
-
 }
 

@@ -1,4 +1,4 @@
-package com.rarible.protocol.tezos.api.client
+package com.rarible.protocol.tezos.indexer.client
 
 import java.net.URI
 

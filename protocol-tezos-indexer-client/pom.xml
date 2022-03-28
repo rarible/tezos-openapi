@@ -85,7 +85,7 @@
                         <configuration>
                             <generatorName>rarible-client</generatorName>
                             <inputSpec>${dir.target.temp}/openapi.yaml</inputSpec>
-                            <apiPackage>com.rarible.protocol.tezos.indexer.api.client</apiPackage>
+                            <apiPackage>com.rarible.protocol.tezos.indexer.client</apiPackage>
                             <generateModels>false</generateModels>
                             <generateApiTests>false</generateApiTests>
                             <generateApis>true</generateApis>
