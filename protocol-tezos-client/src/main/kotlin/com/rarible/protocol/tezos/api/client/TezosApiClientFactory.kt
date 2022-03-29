@@ -43,5 +43,6 @@ open class TezosApiClientFactory(
         return ApiClient(webClientCustomizer, jacksonMapper)
             .setBasePath(uriProvider.getUri().toASCIIString())
     }
+
 }
 

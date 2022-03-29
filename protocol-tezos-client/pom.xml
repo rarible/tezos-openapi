@@ -52,12 +52,9 @@
                 <groupId>com.rarible.codegen</groupId>
                 <artifactId>model-generator-maven-plugin</artifactId>
                 <configuration>
-                    <dependencies>
-                        <dependency>
-                            <name>protocol-tezos-model</name>
-                            <packageName>${codegen.package}</packageName>
-                        </dependency>
-                    </dependencies>
+                    <schema>
+                        <outputFile>${basedir}/target/temp/openapi.yaml</outputFile>
+                    </schema>
                 </configuration>
             </plugin>
 
@@ -72,7 +69,7 @@
                         </goals>
                         <configuration>
                             <generatorName>rarible-client</generatorName>
-                            <inputSpec>${project.basedir}/target/classes/openapi.yaml</inputSpec>
+                            <inputSpec>${project.basedir}/../openapi.yaml</inputSpec>
                             <generateModels>false</generateModels>
                             <generateApiTests>false</generateApiTests>
                             <generateApis>true</generateApis>
